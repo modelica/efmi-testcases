@@ -1,0 +1,9 @@
+within eFMI_TestCases.Utilities.Internal;
+record MapName
+    String from="";
+    String to="";
+    Integer dimensions[:]=fill(0,0);
+    Boolean isOutput=false;
+    Boolean isBoolean=false;
+    ToleranceSetType ToleranceSet[:]=fill(ToleranceSetType(),0);
+end MapName;

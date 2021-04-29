@@ -1,0 +1,10 @@
+*													@christoff-buerger
+CODEOWNERS											@christoff-buerger @MartinOtter @AndreasPfeiffer @olivleno
+SECURITY.md											@christoff-buerger @MartinOtter @AndreasPfeiffer @olivleno
+README.md											@christoff-buerger @MartinOtter @AndreasPfeiffer @olivleno
+GALEC-examples/										@christoff-buerger @modelica/map-efmi
+eFMI/												@christoff-buerger @MartinOtter
+eFMI_TestCases/										@christoff-buerger @AndreasPfeiffer
+eFMI_TestCases/M14_Rectifier						@christoff-buerger @AndreasPfeiffer @olivleno
+eFMI_TestCases/M15_AirSystem						@christoff-buerger @AndreasPfeiffer @olivleno
+eFMI_TestCases/M16_ROM								@christoff-buerger @AndreasPfeiffer @olivleno

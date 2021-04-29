@@ -1,0 +1,25 @@
+within eFMI_TestCases.M16_ROM.Tests;
+model MatrixEqSystem_ImplEuler
+  extends TestSetups.BaseSetup(
+    final is_clocked = true,
+    final clock(
+      useSolver = true,
+      period = 0.1,
+      solverMethod = "ImplicitEuler"));
+  extends eFMI_TestCases.Icons.PerformanceTest;
+
+  annotation (
+    experiment(
+      StopTime=160,
+      Interval=0.1),
+    __Dymola_experimentFlags(
+      Hidden(InitializeClockedDiscretizedStates = true)),
+    __Dymola_Commands(file(
+        ensureSimulated=true) = "M16_ROM/Resources/DymolaScripts/plot.mos" "plot"),
+     __iti_namesAtInterface={
+  MapName(from="matrixEqSystem.n",to="n"),
+  MapName(from="matrixEqSystem.tau",to="tau"),
+  MapName(from="matrixEqSystem.y",to="y")},
+  __fmi_modelExportName = "M16_A",
+  __fmi_sourceModel = "eFMI_TestCases.M16_ROM.ROM_Models.MatrixEqSystem");
+end MatrixEqSystem_ImplEuler;
