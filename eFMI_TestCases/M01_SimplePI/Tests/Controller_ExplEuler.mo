@@ -13,5 +13,5 @@ model Controller_ExplEuler
       Interval = 0.01),
     __iti_namesAtInterface={MapName(from="y.y",to="y"),MapName(from="r.y",to="r"),MapName(from="controller.u",to="u")},
     __fmi_modelExportName = "M01_A",
-    __fmi_sourceModel = "eFMI_TestCases.M01_SimplePI.ModelsToExport.Controller");
+    __fmi_sourceModel = "eFMI_TestCases.M01_SimplePI.Controllers.PI");
 end Controller_ExplEuler;

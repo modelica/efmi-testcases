@@ -19,5 +19,5 @@ model Controller_Rosenbrock1
         OutputModelicaCode = false)),
     __iti_namesAtInterface={MapName(from="controller.s_ref",to="s_ref"),MapName(from="controller.phi",to="phi"),MapName(from="controller.tau",to="tau")},
     __fmi_modelExportName = "M10_A",
-  __fmi_sourceModel = "eFMI_TestCases.M10_ControlledSliderCrank.ModelsToExport.Controller");
+  __fmi_sourceModel = "eFMI_TestCases.M10_ControlledSliderCrank.Controllers.Controller1");
 end Controller_Rosenbrock1;

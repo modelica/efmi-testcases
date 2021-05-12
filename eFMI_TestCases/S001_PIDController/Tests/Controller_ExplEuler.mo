@@ -10,5 +10,5 @@ model Controller_ExplEuler
   MapName(from="controller.wMotor",to="wMotor"),
   MapName(from="controller.vMotor",to="vMotor")},
   __fmi_modelExportName = "S001_A",
-  __fmi_sourceModel = "eFMI_TestCases.S001_PIDController.ModelsToExport.Controller");
+  __fmi_sourceModel = "eFMI_TestCases.S001_PIDController.Controllers.PIDController");
 end Controller_ExplEuler;

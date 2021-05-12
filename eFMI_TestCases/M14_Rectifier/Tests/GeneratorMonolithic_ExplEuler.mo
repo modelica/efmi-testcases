@@ -19,5 +19,5 @@ model GeneratorMonolithic_ExplEuler
   MapName(from="generator.U_Bat",to="U_Bat"),
   MapName(from="generator.I",to="I")},
   __fmi_modelExportName = "M14_B",
-  __fmi_sourceModel = "eFMI_TestCases.M14_Rectifier.Generators.GeneratorMonolithic_Modelica");
+  __fmi_sourceModel = "eFMI_TestCases.M14_Rectifier.Controllers.GeneratorMonolithic_Modelica");
 end GeneratorMonolithic_ExplEuler;

@@ -15,5 +15,5 @@ model Vehicle_ExplEuler
       MapName(from="vehiclePlant.u",to="u"),
       MapName(from="vehiclePlant.x",to="x")},
     __fmi_modelExportName = "S003_B",
-  __fmi_sourceModel = "eFMI_TestCases.S003_VehicleModel.PlantModels.VehiclePlant");
+  __fmi_sourceModel = "eFMI_TestCases.S003_VehicleModel.Controllers.VehiclePlant");
 end Vehicle_ExplEuler;

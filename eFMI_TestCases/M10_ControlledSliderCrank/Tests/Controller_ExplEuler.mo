@@ -20,5 +20,5 @@ model Controller_ExplEuler
         OutputModelicaCode = false)),
     __iti_namesAtInterface={MapName(from="controller.s_ref",to="s_ref"),MapName(from="controller.phi",to="phi"),MapName(from="controller.tau",to="tau")},
     __fmi_modelExportName = "M10_B",
-  __fmi_sourceModel = "eFMI_TestCases.M10_ControlledSliderCrank.ModelsToExport.Controller3");
+  __fmi_sourceModel = "eFMI_TestCases.M10_ControlledSliderCrank.Controllers.Controller3");
 end Controller_ExplEuler;
