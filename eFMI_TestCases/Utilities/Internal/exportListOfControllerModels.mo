@@ -23,6 +23,14 @@ algorithm
   shortName := info[:].FMUName;
   longName := info[:].sourceName;
 
+
+  // Check, if model classes exist
+  for i in 1:n loop
+    if not ModelManagement.Structure.AST.ClassExists(longName[i]) then
+      print("Warning: Model class " + longName[i] + " does not exist, but the name of the class is exported for test case " + shortName[i] + ".");
+    end if;
+  end for;
+
   // sort names
   nameToSort := fill("",n);
   for i in 1:n loop
