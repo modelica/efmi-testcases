@@ -6,7 +6,6 @@ model AirSystem_ExplEuler
       period = 0.001,
       useSolver = true,
       solverMethod = "ExplicitEuler"));
-  extends eFMI_TestCases.Icons.PerformanceTest;
 
   annotation (
     experiment(
