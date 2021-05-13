@@ -23,5 +23,5 @@ model VehicleScalarInterface_Rosenbrock1
       MapName(from="vehiclePlant.x7",to="x7"),
       MapName(from="vehiclePlant.x8",to="x8")},
     __fmi_modelExportName = "S003_C",
-  __fmi_sourceModel = "eFMI_TestCases.S003_VehicleModel.PlantModels.VehiclePlant_ScalarInterface");
+  __fmi_sourceModel = "eFMI_TestCases.S003_VehicleModel.Controllers.VehiclePlant_ScalarInterface");
 end VehicleScalarInterface_Rosenbrock1;

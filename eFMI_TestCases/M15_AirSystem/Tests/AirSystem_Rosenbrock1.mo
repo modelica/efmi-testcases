@@ -20,6 +20,6 @@ model AirSystem_Rosenbrock1
   MapName(from="airSystem.AFR",to="AFR"),
   MapName(from="airSystem.n",to="n")},
   __fmi_modelExportName = "M15_B",
-  __fmi_sourceModel = "eFMI_TestCases.M15_AirSystem.Systems.AirSystem",
+  __fmi_sourceModel = "eFMI_TestCases.M15_AirSystem.Controllers.AirSystem",
     __Dymola_experimentFlags(Hidden(InitializeClockedDiscretizedStates=true)));
 end AirSystem_Rosenbrock1;

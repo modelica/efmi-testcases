@@ -21,5 +21,5 @@ model MatrixEqSystem_ImplEuler
   MapName(from="matrixEqSystem.tau",to="tau"),
   MapName(from="matrixEqSystem.y",to="y")},
   __fmi_modelExportName = "M16_A",
-  __fmi_sourceModel = "eFMI_TestCases.M16_ROM.ROM_Models.MatrixEqSystem");
+  __fmi_sourceModel = "eFMI_TestCases.M16_ROM.Controllers.MatrixEqSystem");
 end MatrixEqSystem_ImplEuler;

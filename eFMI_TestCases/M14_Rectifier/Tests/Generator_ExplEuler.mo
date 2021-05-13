@@ -20,5 +20,5 @@ model Generator_ExplEuler
   MapName(from="generator.U_Bat",to="U_Bat"),
   MapName(from="generator.I",to="I")},
   __fmi_modelExportName = "M14_A",
-  __fmi_sourceModel = "eFMI_TestCases.M14_Rectifier.Generators.Generator");
+  __fmi_sourceModel = "eFMI_TestCases.M14_Rectifier.Controllers.Generator");
 end Generator_ExplEuler;

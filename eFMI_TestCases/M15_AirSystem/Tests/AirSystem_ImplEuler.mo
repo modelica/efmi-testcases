@@ -22,6 +22,6 @@ model AirSystem_ImplEuler
   MapName(from="airSystem.AFR",to="AFR"),
   MapName(from="airSystem.n",to="n")},
   __fmi_modelExportName = "M15_C",
-  __fmi_sourceModel = "eFMI_TestCases.M15_AirSystem.Systems.AirSystem",
+  __fmi_sourceModel = "eFMI_TestCases.M15_AirSystem.Controllers.AirSystem",
     __Dymola_experimentSetupOutput(doublePrecision=true, events=false));
 end AirSystem_ImplEuler;

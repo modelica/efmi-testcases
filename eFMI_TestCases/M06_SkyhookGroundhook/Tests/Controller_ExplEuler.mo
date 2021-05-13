@@ -12,5 +12,5 @@ model Controller_ExplEuler
   MapName(from="controller.v_damper",to="v_damper"),
   MapName(from="controller.u_damper",to="u_damper")},
   __fmi_modelExportName = "M06_A",
-  __fmi_sourceModel = "eFMI_TestCases.M06_SkyhookGroundhook.ModelsToExport.Controller");
+  __fmi_sourceModel = "eFMI_TestCases.M06_SkyhookGroundhook.Controllers.SkyhookGroundhook");
 end Controller_ExplEuler;
