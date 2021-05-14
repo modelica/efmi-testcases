@@ -4,8 +4,8 @@ function exportListOfTestCases "Exports a sorted list of all test cases into a t
   input Boolean addShortName = true "Generated list shall contain the short names of the test cases";
   input Boolean exportWithBrackets = false "Generated list shall contain the long names in brackets";
 
-  input String additionalTestcases[:] = {"M17_ACLoop", "M18_VehicleDynamicsSuMo_1"} "List of additional test cases that cannot automatically be detected from the Modelica test case library";
-  input String additionalTestcasesShortNames[:] = {"M17_A", "M18_A"} "Corresponding list of short names for the additional test cases";
+  input String additionalTestcases[:] = {"M23_ErrorHandlingFunction"} "List of additional test cases that cannot automatically be detected from the Modelica test case library";
+  input String additionalTestcasesShortNames[:] = {"M23_A"} "Corresponding list of short names for the additional test cases";
 
   input String fileName = "ListOfTestCases.txt" "Name of text file that contains the list of test case models after the function call";
   input String outputDir = "FMUs" "Name of directory where the list of test cases is saved";
