@@ -6,7 +6,6 @@ model Controller_Rosenbrock1
       useSolver = true,
       period = 0.01,
       solverMethod = "Rosenbrock1"));
-  extends eFMI_TestCases.Icons.PerformanceTest;
 
   annotation (
     experiment(

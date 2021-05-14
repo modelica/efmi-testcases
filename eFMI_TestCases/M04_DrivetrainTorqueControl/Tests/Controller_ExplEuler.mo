@@ -6,7 +6,6 @@ model Controller_ExplEuler
       useSolver = true,
       period = 5e-4,
       solverMethod = "ExplicitEuler"));
-  extends eFMI_TestCases.Icons.PerformanceTest;
 
   annotation (
     experiment(
@@ -15,5 +14,4 @@ model Controller_ExplEuler
        __iti_namesAtInterface={MapName(from="controller.M_desired",to="M_desired"),MapName(from="controller.wRel",to="wRel"),MapName(from="controller.M_motor",to="M_motor")},
     __fmi_modelExportName = "M04_A",
   __fmi_sourceModel = "eFMI_TestCases.M04_DrivetrainTorqueControl.Controllers.Controller");
-
 end Controller_ExplEuler;

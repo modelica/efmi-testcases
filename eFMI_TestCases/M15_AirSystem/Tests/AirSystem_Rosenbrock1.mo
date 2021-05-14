@@ -6,7 +6,6 @@ model AirSystem_Rosenbrock1
       period = 0.05,
       useSolver = true,
       solverMethod = "Rosenbrock1"));
-  extends eFMI_TestCases.Icons.PerformanceTest;
 
   annotation (
     experiment(

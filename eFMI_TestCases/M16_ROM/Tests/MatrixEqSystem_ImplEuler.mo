@@ -6,7 +6,6 @@ model MatrixEqSystem_ImplEuler
       useSolver = true,
       period = 0.1,
       solverMethod = "ImplicitEuler"));
-  extends eFMI_TestCases.Icons.PerformanceTest;
 
   annotation (
     experiment(

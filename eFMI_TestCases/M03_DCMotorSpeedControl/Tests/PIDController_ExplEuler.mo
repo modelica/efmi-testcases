@@ -6,7 +6,6 @@ model PIDController_ExplEuler
       useSolver = true,
       solverMethod = "ExplicitEuler",
       period = 0.001));
-  extends eFMI_TestCases.Icons.PerformanceTest;
 
   annotation (
     experiment(
