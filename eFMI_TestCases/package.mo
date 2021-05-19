@@ -17,8 +17,8 @@ package eFMI_TestCases "eFMI_TestCases: Official MAP eFMI library with test-scen
 <p>Please consult the <a href=\"modelica://eFMI_TestCases.UsersGuide\">user&apos;s guide</a> for an overview of the <u><i>application scenario template</i></u> used by all scenarios; the template ensures a common structure, components, test setup and eFMI tooling integration. The <u><i>application scenario specific domain and objectives</i></u> are documented individually in each scenario&apos;s package.</p>
 <p><b>Authors:</b> The individual application scenarios are developed by different authors, mostly by DLR-SR and Robert Bosch GmbH. The library, its application scenario template and scripting is maintained by:</p>
 <ul>
-<li><b>Library officer:</b> Andreas Pfeiffer (DLR, <a href=\"mailto:Andreas.Pfeiffer@dlr.de\">Andreas.Pfeiffer@dlr.de</a>)</li>
-<li><b>Deputy library officer:</b> Christoff B&uuml;rger (Dassault Syst&egrave;mes AB, <a href=\"mailto:Christoff.Buerger@3ds.com\">Christoff.Buerger@3ds.com</a>)</li>
+<li><b>Library officer:</b> Christoff B&uuml;rger (Dassault Syst&egrave;mes AB, <a href=\"mailto:Christoff.Buerger@3ds.com\">Christoff.Buerger@3ds.com</a>)</li>
+<li><b>Deputy library officer:</b> Andreas Pfeiffer (DLR-SR, <a href=\"mailto:Andreas.Pfeiffer@dlr.de\">Andreas.Pfeiffer@dlr.de</a>)</li>
 </ul>
 <p><b>Licensed under the <a href=\"https://opensource.org/licenses/BSD-3-Clause\">3-Clause BSD License</a></b></p>
 <p>Copyright &copy; 2017-2021, <a href=\"https://www.3ds.com/\">Dassault Syst&egrave;mes</a>, <a href=\"https://www.dlr.de/sr/en\">DLR-SR</a>, <a href=\"https://www.bosch.de/\">Robert Bosch GmbH</a>, <a href=\"https://efmi-standard.org\">Modelica Association Project eFMI</a>. </p>
