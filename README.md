@@ -10,4 +10,4 @@ The `eFMI_TestCases` and `eFMI` Modelica libraries contain comprehensive documen
 
 ## Contributing and repository policy
 
-Please consult the [CONTRIBUTING.md](Contributing.md) for details on how to report issues and contribute to the repository.
+Please consult the `CONTRIBUTING.md` for details on how to report issues and contribute to the repository.
