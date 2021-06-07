@@ -8,6 +8,10 @@ This repository compiles official test cases for the [eFMI standard](https://efm
 
 The `eFMI_TestCases` and `eFMI` Modelica libraries contain comprehensive documentation in their `UsersGuide` packages. Please use your preferred Modelica tooling/IDE to read the documentation for questions regarding how to use the libraries, what is tested/provided, which eFMI tooling is required etc.
 
-## Contributing and repository policy
+## Contributing, security and repository policies
 
-Please consult the `CONTRIBUTING.md` for details on how to report issues and contribute to the repository.
+Please consult the [contributing guidelines](CONTRIBUTING.md) for details on how to report issues and contribute to the repository.
+
+For security issues, please consult the [security guidelines](SECURITY.md).
+
+General MAP eFMI repository setup and configuration policies are summarized in the [MAP eFMI repository policies](https://github.com/modelica/efmi-organization/wiki/Repositories#public-repository-policies) (only relevant for repository administrators and therefor private webpage).
