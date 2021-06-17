@@ -16,8 +16,10 @@ package eFMI "eFMI: Support library to ease preparing Modelica models for eFMI t
 <li><b>Deputy library officer:</b> Martin Otter (DLR, <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>)</li>
 </ul>
 <p><b>Licensed under the <a href=\"https://opensource.org/licenses/BSD-3-Clause\">3-Clause BSD License</a></b></p>
-<p>Copyright &copy; 2017-2021, <a href=\"https://www.3ds.com/\">Dassault Syst&egrave;mes</a>, <a href=\"https://www.dlr.de/sr/en\">DLR-SR</a>, <a href=\"https://efmi-standard.org\">Modelica Association Project eFMI</a>.</p>
+<p>Copyright &copy; 2017-2021, <a href=\"https://www.3ds.com/\">Dassault Syst&egrave;mes</a>, <a href=\"https://www.dlr.de/sr/en\">DLR-SR</a>, <a href=\"https://modelica.org/\">Modelica Association and contributors</a>.</p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://opensource.org/licenses/BSD-3-Clause\">https://opensource.org/licenses/BSD-3-Clause</a>.</i> </p>
-<p><b>Modelica&reg;</b> is a registered trademark of the Modelica Association. </p>
+<p><b>Modelica&reg;</b> is a registered trademark of the Modelica Association.</p>
+<p><b>eFMI&reg;</b> is a registered trademark of the Modelica Association.</p>
+<p><b>FMI&reg;</b> is a registered trademark of the Modelica Association.</p>
 </html>"));
 end eFMI;
