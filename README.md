@@ -8,12 +8,10 @@ This repository compiles official test cases for the [eFMI standard](https://efm
 
 The `eFMI_TestCases` and `eFMI` Modelica libraries contain comprehensive documentation in their `UsersGuide` packages. Please use your preferred Modelica tooling/IDE to read the documentation for questions regarding how to use the libraries, what is tested/provided, which eFMI tooling is required etc.
 
-## Contributing and repository policy
+## Contributing, security and repository policies
 
-The main branch (`main`) of the repository is protected. All work must be done on separate branches, with pull requests to merge your new contributions into `main`. Respective pull requests must be reviewed by at least one code owner of the changed artefacts. Please cf. the `CODEOWNERS` file for who to add as reviewer to your pull request.
+Please consult the [contributing guidelines](CONTRIBUTING.md) for details on how to report issues and contribute to the repository.
 
-The organization of the Modelica-based test cases is documented in the `UsersGuide` package of the `eFMI_TestCases` library. Please read it before pushing new contributions; only contributions satisfying the documented library structure are accepted.
+For security issues, please consult the [security guidelines](SECURITY.md).
 
-## Reporting issues
-
-Please check the available labels and use them. The label descriptions clarify the kind of issues that can be reported. _Every_ issue must be labeled with _one_ collated-to category label (`eFMI library`, `eFMI_TestCases library`, `GALEC examples` or `infrastructure`) denoting the artefacts of the repository the issue is about. The issue also _must_ be categorized if it is an enhancement request or an actual bug (`enhancement` and `bug` labels). The `documentation` label is optional and used to denote that the issue is about the documentation of its collated-to category.
+General MAP eFMI repository setup and configuration policies are summarized in the [MAP eFMI repository policies](https://github.com/modelica/efmi-organization/wiki/Repositories#public-repository-policies) (only relevant for repository administrators and therefor private webpage).
