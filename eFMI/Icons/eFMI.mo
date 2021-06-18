@@ -4,6 +4,6 @@ class eFMI
     Icon(
       graphics={
         Bitmap(
-          extent={{-90,-90},{90,90}},
-          fileName = "modelica://eFMI/Resources/Images/efmi-logo.png")}));
+          extent={{-84,-50},{84,50}},
+          fileName = "modelica://eFMI/Resources/Images/eFMI-logo.png")}));
 end eFMI;
