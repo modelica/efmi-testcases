@@ -1,11 +1,7 @@
 within eFMI_TestCases.M16_ROM.Tests;
-model MatrixEqSystem_ImplEuler
-  extends TestSetups.BaseSetup(
-    final is_clocked = true,
-    clock(
-      useSolver = true,
-      period = 0.1,
-      solverMethod = "ImplicitEuler"));
+model PackedMatrixEqSystem_ImplEuler
+  extends MatrixEqSystem_ImplEuler(
+    redeclare Controllers.PackedMatrixEqSystem matrixEqSystem);
 
   annotation (
     experiment(
@@ -19,6 +15,6 @@ model MatrixEqSystem_ImplEuler
   MapName(from="matrixEqSystem.n",to="n"),
   MapName(from="matrixEqSystem.tau",to="tau"),
   MapName(from="matrixEqSystem.y",to="y")},
-  __fmi_modelExportName = "M16_A",
-  __fmi_sourceModel = "eFMI_TestCases.M16_ROM.Controllers.MatrixEqSystem");
-end MatrixEqSystem_ImplEuler;
+  __fmi_modelExportName = "M16_B",
+  __fmi_sourceModel = "eFMI_TestCases.M16_ROM.Controllers.PackedMatrixEqSystem");
+end PackedMatrixEqSystem_ImplEuler;

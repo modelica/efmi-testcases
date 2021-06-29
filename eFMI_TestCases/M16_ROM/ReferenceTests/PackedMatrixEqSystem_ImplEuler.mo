@@ -1,8 +1,8 @@
 within eFMI_TestCases.M16_ROM.ReferenceTests;
-model MatrixEqSystem_ImplEuler "Clocked Implicit Euler reference solution"
-  extends Tests.MatrixEqSystem_ImplEuler;
+model PackedMatrixEqSystem_ImplEuler
+  extends Tests.PackedMatrixEqSystem_ImplEuler;
 
-   annotation (
+  annotation (
     experiment(
       StopTime=160.0,
       Interval=0.1,
@@ -24,5 +24,5 @@ model MatrixEqSystem_ImplEuler "Clocked Implicit Euler reference solution"
                                                                                      ToleranceSetType(absTol32=0.3),
                                                                                      ToleranceSetType(absTol32=0.1),
                                                                                      ToleranceSetType(absTol32=0.07)})},
-  __fmi_OriginalModel_ExportReference="eFMI_TestCases.M16_ROM.Tests.MatrixEqSystem_ImplEuler");
-end MatrixEqSystem_ImplEuler;
+  __fmi_OriginalModel_ExportReference="eFMI_TestCases.M16_ROM.Tests.PackedMatrixEqSystem_ImplEuler");
+end PackedMatrixEqSystem_ImplEuler;
