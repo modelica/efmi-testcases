@@ -1,6 +1,6 @@
 within eFMI.Tables;
-model CombiTable2D
-  "'Modelica.Tables.CombiTable2D' alternative enabling eFMI
+model CombiTable2Ds
+  "'Modelica.Tables.CombiTable2Ds' alternative enabling eFMI
    GALEC code generation for the MSL 2D table interface."
   extends .Modelica.Blocks.Interfaces.SI2SO;
   extends .eFMI.Icons.Table;
@@ -34,12 +34,12 @@ model CombiTable2D
     annotation (Dialog(
       group = "Table data definition",
       enable = tableOnFile));
-  parameter Modelica.Blocks.Types.Smoothness smoothness=
+  parameter .Modelica.Blocks.Types.Smoothness smoothness=
     Modelica.Blocks.Types.Smoothness.LinearSegments
     "Smoothness of table interpolation"
     annotation (Dialog(
       group = "Table data interpretation"));
-  parameter Modelica.Blocks.Types.Extrapolation extrapolation=
+  parameter .Modelica.Blocks.Types.Extrapolation extrapolation=
     Modelica.Blocks.Types.Extrapolation.LastTwoPoints
     "Extrapolation of data outside the definition range"
     annotation (Dialog(
@@ -48,7 +48,7 @@ model CombiTable2D
     "= true, if warning messages are to be printed if table input is outside the definition range"
     annotation (Dialog(
       group = "Table data interpretation",
-      enable = extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+      enable = extrapolation == .Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
 
   /* eFMI specific table interface */
 
@@ -63,7 +63,7 @@ model CombiTable2D
     annotation(Evaluate = true);
 
 protected
-  final Modelica.Blocks.Tables.CombiTable2D combiTable2D(
+  final .Modelica.Blocks.Tables.CombiTable2Ds combiTable2D(
     final tableOnFile = tableOnFile,
     final table = table,
     final tableName = tableName,
@@ -72,7 +72,7 @@ protected
     final smoothness = smoothness,
     final extrapolation = extrapolation,
     final verboseExtrapolation = verboseExtrapolation) if not efmi
-    annotation (Placement(transformation(extent = {{-10,-10},{10,10}})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
   final parameter Real efmi_u1_data[:] = table[2:size(table, 1), 1]
     annotation(Evaluate = true);
@@ -85,7 +85,7 @@ protected
     convertSmoothness(smoothness)
     annotation(Evaluate = true);
   final parameter Integer efmi_extrapolation(min = 1, max = 2)=
-    (if extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint
+    (if extrapolation == .Modelica.Blocks.Types.Extrapolation.HoldLastPoint
      then 1 else 2)
     annotation(Evaluate = true);
 
@@ -125,12 +125,12 @@ initial algorithm
        (verboseExtrapolation),
     "eFMI.Tables.CombiTable2D: Only 'verboseExtrapolation = false' supported.");
   assert(
-    smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments
-    or smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments,
+    smoothness == .Modelica.Blocks.Types.Smoothness.ConstantSegments
+    or smoothness == .Modelica.Blocks.Types.Smoothness.LinearSegments,
     "eFMI.Tables.CombiTable2D: Unsupported smoothness.");
   assert(
-    extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint
-    or extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints,
+    extrapolation == .Modelica.Blocks.Types.Extrapolation.HoldLastPoint
+    or extrapolation == .Modelica.Blocks.Types.Extrapolation.LastTwoPoints,
     "eFMI.Tables.CombiTable2D: Unsupported extrapolation.");
 
 equation
@@ -187,4 +187,4 @@ equation
           fillColor = {255,215,136},
           fillPattern = FillPattern.Solid,
           textString = "eFMI 2D")}));
-end CombiTable2D;
+end CombiTable2Ds;

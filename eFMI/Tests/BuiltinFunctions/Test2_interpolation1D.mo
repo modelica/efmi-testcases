@@ -1,6 +1,7 @@
 within eFMI.Tests.BuiltinFunctions;
 model Test2_interpolation1D
-  extends Modelica.Icons.Example;
+  extends .Modelica.Icons.Example;
+
   Boolean ok;
 
 equation

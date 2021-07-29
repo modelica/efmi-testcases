@@ -1,6 +1,5 @@
 within eFMI.Icons;
 class Table
-
   annotation (Icon(graphics={
         Line(
           points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,-40},
