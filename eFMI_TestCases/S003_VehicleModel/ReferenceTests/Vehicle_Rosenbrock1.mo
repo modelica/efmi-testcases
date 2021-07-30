@@ -2,9 +2,9 @@ within eFMI_TestCases.S003_VehicleModel.ReferenceTests;
 model Vehicle_Rosenbrock1
   extends Tests.Vehicle_Rosenbrock1;
 
-  Modelica.Blocks.Continuous.Der der_u[2]
+  .Modelica.Blocks.Continuous.Der der_u[2]
     annotation (Placement(transformation(extent = {{-36,-36},{-24,-24}})));
-  Modelica.Blocks.Routing.Multiplex2 mux_der_u
+  .Modelica.Blocks.Routing.Multiplex2 mux_der_u
     annotation (Placement(transformation(extent = {{-6,-36},{6,-24}})));
 
 equation

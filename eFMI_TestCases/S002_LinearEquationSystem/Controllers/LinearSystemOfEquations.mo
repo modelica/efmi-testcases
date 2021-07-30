@@ -1,16 +1,18 @@
 within eFMI_TestCases.S002_LinearEquationSystem.Controllers;
 model LinearSystemOfEquations
-  extends Modelica.Blocks.Icons.Block;
+  extends .Modelica.Blocks.Icons.Block;
   extends eFMI_TestCases.Icons.Controller;
 
-  Modelica.Blocks.Interfaces.RealInput u[4](each min=-1.0e7, each max=1.0e7)
+  .Modelica.Blocks.Interfaces.RealInput u[4](
+    each min = -1.0e7,
+    each max = 1.0e7)
     "Connector of Real input signals"
     annotation (Placement(transformation(extent = {{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealOutput y[4]
+  .Modelica.Blocks.Interfaces.RealOutput y[4]
     "Connector of Real output signals"
     annotation (Placement(transformation(extent = {{100,-10},{120,10}})));
 
-  constant Real pi = Modelica.Constants.pi;
+  constant Real pi = .Modelica.Constants.pi;
 
   Real x[4](start = {-3, 7, 19, 1});
   Real v[4](start = zeros(4));

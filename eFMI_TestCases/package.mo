@@ -9,9 +9,9 @@ package eFMI_TestCases "eFMI_TestCases: Official MAP eFMI library with test-scen
     preferredView="info",
     version="1.1.0",
     uses(
-      Modelica(version="3.2.3"),
-      Modelica_Synchronous(version="0.93.0"),
-      eFMI(version="1.1.0")),
+      Modelica(version="4.0.0"),
+      eFMI(version="1.1.0"),
+      ModelManagement(version = "1.3")),
     Documentation(info="<html>
 <p>Library <b>eFMI_TestCases</b> provides application scenarios for evaluating and crosschecking <a href=\"https://efmi-standard.org/\">eFMI</a> tooling. It is officially released and maintained by the <a href=\"https://efmi-standard.org/\">MAP eFMI</a> in accordance with new releases of the eFMI standard.</p>
 <p>The individual application scenarios are the libraries&apos; direct subpackages M01 - M25 and S001 - S003; each package is one application scenario.</p>

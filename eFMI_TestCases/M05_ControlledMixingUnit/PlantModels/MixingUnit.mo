@@ -1,7 +1,7 @@
 within eFMI_TestCases.M05_ControlledMixingUnit.PlantModels;
 model MixingUnit
   extends
-    Modelica_Synchronous.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit(
+    .Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit(
     c(start = c_start,
       fixed = not deactivateStateSelect),
     T(start = T_start,
@@ -30,11 +30,12 @@ model MixingUnit
   parameter Real k0_inv = 1.05e14;
   parameter Real x10 = 0.42;
   parameter Real x20 = 0.01;
-  parameter Real pro = 1.5 "Deviations of plant to inverse plant parameters";
+  parameter Real pro = 1.5
+    "Deviations of plant to inverse plant parameters";
   parameter Real u0 = -0.0224;
 
   final parameter Real c_start(unit = "mol/l") = c0*(1-x10);
-  final parameter Modelica.SIunits.Temperature T_start = T0*(1+x20);
+  final parameter Modelica.Units.SI.Temperature T_start = T0*(1 + x20);
   final parameter Real T_c_start = if for_inversion then T0*(1+u0) else 0.0;
 
   annotation (preferredView = "info");

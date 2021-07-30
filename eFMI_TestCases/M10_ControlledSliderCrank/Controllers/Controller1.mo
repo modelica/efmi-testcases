@@ -2,29 +2,29 @@ within eFMI_TestCases.M10_ControlledSliderCrank.Controllers;
 model Controller1
   extends Controller_interface;
 
-  Modelica.Blocks.Math.Gain gain(k = 10)
+  .Modelica.Blocks.Math.Gain gain(k = 10)
     annotation (Placement(transformation(
       extent = {{20,-30},{40,-10}},
       rotation = 0)));
-  Modelica.Blocks.Math.Feedback feedback
+  .Modelica.Blocks.Math.Feedback feedback
     annotation (Placement(transformation(
       extent = {{-10,-30},{10,-10}},
       rotation = 0)));
   PlantModels.SliderCrank1 sliderCrankInv(world(
-      enableAnimation=false,
-      animateWorld=false,
-      animateGravity=false))
+      enableAnimation = false,
+      animateWorld = false,
+      animateGravity = false))
     annotation (Placement(transformation(extent={{26,6},{-2,34}})));
-  Modelica.Blocks.Math.InverseBlockConstraints inverseBlockConstraints
+  .Modelica.Blocks.Math.InverseBlockConstraints inverseBlockConstraints
     annotation (Placement(transformation(extent = {{-28,0},{48,40}})));
-  Modelica.Blocks.Continuous.CriticalDamping criticalDamping(
-    x_start={0.6,0.6,0.6},
+  .Modelica.Blocks.Continuous.CriticalDamping criticalDamping(
+    x_start = {0.6,0.6,0.6},
     x(each stateSelect = StateSelect.always),
-    initType=Modelica.Blocks.Types.Init.InitialState,
+    initType = .Modelica.Blocks.Types.Init.InitialState,
     f = 2,
     n = 3)
     annotation (Placement(transformation(extent = {{-60,10},{-40,30}})));
-  Modelica.Blocks.Math.Add add
+  .Modelica.Blocks.Math.Add add
     annotation (Placement(transformation(extent = {{68,-6},{80,6}})));
 
 equation
@@ -69,7 +69,10 @@ equation
       points = {{28.8,20},{42.3,20}},
       color = {0,0,127}));
 
-  annotation (preferredView = "diagram", Icon(graphics={
+  annotation (
+    preferredView = "diagram",
+    Icon(
+      graphics={
         Text(
           extent={{-40,20},{40,-20}},
           lineColor={28,108,200},

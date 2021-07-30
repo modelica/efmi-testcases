@@ -1,6 +1,6 @@
 within eFMI_TestCases.M04_DrivetrainTorqueControl.TestSetups;
 model Controller_Rosenbrock1_ClosedLoop
-    extends TestSetups.ClosedLoop(
+  extends TestSetups.ClosedLoop(
     final is_clocked = true,
     clock(
       useSolver = true,

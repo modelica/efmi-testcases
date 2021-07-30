@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M01_SimplePI "Example of a PI controller for a simple DC motor"
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
 annotation (preferredView="info", Documentation(info="<html>
 <p>

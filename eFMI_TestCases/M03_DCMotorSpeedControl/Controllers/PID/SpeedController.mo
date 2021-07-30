@@ -2,20 +2,21 @@ within eFMI_TestCases.M03_DCMotorSpeedControl.Controllers.PID;
 block SpeedController "Speed controller as continuous-time system."
   extends ParameterizedControllerInterface;
 
-  Modelica.Blocks.Math.Gain gain(k = gearRatio)
+  .Modelica.Blocks.Math.Gain gain(
+    k = gearRatio)
     annotation (Placement(transformation(extent = {{-50,-10},{-30,10}})));
-  Modelica.Blocks.Math.Feedback feedback
+  .Modelica.Blocks.Math.Feedback feedback
     annotation (Placement(transformation(extent = {{-10,-10},{10,10}})));
-  Modelica.Blocks.Continuous.PID PID(
-    k=k,
+  .Modelica.Blocks.Continuous.PID PID(
+    k = k,
     D(k = kd),
-    Ti=Ti,
-    Td=Td,
-    Nd=1,
-    initType=Modelica.Blocks.Types.InitPID.InitialState,
+    Ti = Ti,
+    Td = Td,
+    Nd = 1,
+    initType = .Modelica.Blocks.Types.Init.InitialState,
     I(y(min = -500, max = 500)))
-    annotation (Placement(transformation(extent = {{20,-10},{40,10}})));
-  Modelica.Blocks.Nonlinear.Limiter limiter(uMax = 400)
+    annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+  .Modelica.Blocks.Nonlinear.Limiter limiter(uMax = 400)
     annotation (Placement(transformation(extent = {{60,-10},{80,10}})));
 
 equation

@@ -1,7 +1,6 @@
 within eFMI_TestCases;
 package M15_AirSystem "Example of an (academic) engine air system"
-  extends Modelica.Icons.ExamplesPackage;
-
+  extends .Modelica.Icons.ExamplesPackage;
 
     annotation (preferredView="info", Documentation(info="<html>
 <p>The model contained in this package reflects the dynamics of an intake air manifold as well as fuel injection and crank shaft dynamics in a spark ignition engine. It is a well-known benchmark model for engine modelling and control called mean value engine model (MVEM). The implementation follows the equations given in [1] and [2] (and on a limited basis also [3]). </p>

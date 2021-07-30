@@ -1,39 +1,40 @@
 within eFMI_TestCases.M15_AirSystem.TestSetups;
 model OpenLoop
-  extends Modelica.Icons.Example;
+  extends .Modelica.Icons.Example;
   extends .eFMI_TestCases.Utilities.ClockedContinuousTwin;
 
   replaceable Controllers.AirSystem airSystem
     annotation (Placement(transformation(extent={{-14,-14},{16,16}})));
 
   // Clocked configuration:
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
     annotation (Placement(transformation(extent={{-78,52},{-62,68}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked v if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked v if is_clocked
     annotation (Placement(transformation(extent={{-46,26},{-34,14}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample m_dot_f_i if is_clocked
-    annotation (Placement(transformation(extent = {{-46,-26},{-34,-14}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold T_i if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Sample m_dot_f_i if is_clocked
+    annotation (Placement(transformation(extent={{-46,-26},{-34,-14}})));
+  .Modelica.Clocked.RealSignals.Sampler.Hold T_i if is_clocked
     annotation (Placement(transformation(extent={{44,24},{56,36}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold p_i  if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold p_i if is_clocked
     annotation (Placement(transformation(extent={{44,4},{56,16}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold AFR if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold AFR if is_clocked
     annotation (Placement(transformation(extent={{44,-16},{56,-4}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold n if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold n if is_clocked
     annotation (Placement(transformation(extent={{44,-36},{56,-24}})));
 
-  Modelica.Blocks.Sources.Ramp throttle_angle(
+  .Modelica.Blocks.Sources.Ramp throttle_angle(
     height=30,
     duration=0.3,
     offset=35,
     startTime=0.5)
     annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
-  Modelica.Blocks.Sources.Ramp fuel_mass_flow(
+  .Modelica.Blocks.Sources.Ramp fuel_mass_flow(
     height=0.0005,
     duration=0.2,
     offset=0.0005,
     startTime=0.5)
     annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
+
 equation
   if is_clocked then
     // Clocked configuration:

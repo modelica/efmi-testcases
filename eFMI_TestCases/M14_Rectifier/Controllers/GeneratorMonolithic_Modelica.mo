@@ -1,15 +1,20 @@
 within eFMI_TestCases.M14_Rectifier.Controllers;
 model GeneratorMonolithic_Modelica
   "Generator comapt ODE formulation in Modelica code"
-    extends Generator_interface(
-   U_Ideal(min = -51.0, max = 51.0),
-   U_Bat(min = 0.0, max = 15.2),
-   I(min = -1e3, max = 1e3));
+  extends Generator_interface(
+    U_Ideal(
+      min = -51.0,
+      max = 51.0),
+    U_Bat(
+      min = 0.0,
+      max = 15.2),
+    I(min = -1e3,
+      max = 1e3));
 
-parameter Modelica.SIunits.Resistance R = 0.57 "Resistance";
-parameter Modelica.SIunits.Inductance L=0.0164    "Inductance";
+  parameter .Modelica.Units.SI.Resistance R=0.57 "Resistance";
+  parameter .Modelica.Units.SI.Inductance L=0.0164 "Inductance";
 
-Modelica.SIunits.Voltage U_R "Voltage drop over the resistor";
+  .Modelica.Units.SI.Voltage U_R "Voltage drop over the resistor";
 
 initial equation
   U_R = 0;
@@ -23,13 +28,14 @@ equation
 
   I = -U_R/R;
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-                             Text(
+  annotation (
+    Icon(
+      graphics={
+        Text(
           extent={{-98,98},{96,44}},
           lineColor={0,140,72},
           pattern=LinePattern.None,
           fillColor={238,46,47},
           fillPattern=FillPattern.Solid,
-          textString="Modelica")}),                              Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+          textString="Modelica")}));
 end GeneratorMonolithic_Modelica;

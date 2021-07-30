@@ -1,32 +1,32 @@
 within eFMI_TestCases.M05_ControlledMixingUnit.Controllers;
 model Controller
-  extends Modelica.Blocks.Interfaces.SI2SO(
+  extends .Modelica.Blocks.Interfaces.SI2SO(
     u1(min = 0, max = 1000),
     u2(min = 0, max = 1000),
     y(min = 0, max = 1000));
   extends eFMI_TestCases.Icons.Controller;
 
-  parameter Modelica.SIunits.Frequency freq = 1/300
+  parameter .Modelica.Units.SI.Frequency freq=1/300
     "Critical frequency of filter";
 
   PlantModels.MixingUnit invMixingUnit(final for_inversion = true)
     annotation (Placement(transformation(
       extent = {{8,10},{-12,30}},
       rotation = 0)));
-  Modelica.Blocks.Math.Add add
+  .Modelica.Blocks.Math.Add add
     annotation (Placement(transformation(extent = {{52,-8},{68,8}})));
-  Modelica.Blocks.Math.InverseBlockConstraints inverseBlockConstraints
+  .Modelica.Blocks.Math.InverseBlockConstraints inverseBlockConstraints
     annotation (Placement(transformation(extent = {{-34,4},{22,36}})));
-  Modelica.Blocks.Math.Feedback feedback
+  .Modelica.Blocks.Math.Feedback feedback
     annotation (Placement(transformation(extent = {{-20,-30},{0,-10}})));
-  Modelica.Blocks.Math.Gain gain(k = 20)
+  .Modelica.Blocks.Math.Gain gain(k = 20)
     annotation (Placement(transformation(extent = {{12,-30},{32,-10}})));
-  Modelica_Synchronous.Examples.Systems.Utilities.ComponentsMixingUnit.CriticalDamping filter(
+  .Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.CriticalDamping filter(
     n = 3,
     f = freq,
-    x(start = {0.49,0.49,0.49},
-      fixed = {true,false,false}))
-    annotation (Placement(transformation(extent = {{-70,10},{-50,30}})));
+    x(start = {0.49, 0.49,  0.49},
+      fixed = {true, false, false}))
+    annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
 
 equation
   connect(feedback.y, gain.u)

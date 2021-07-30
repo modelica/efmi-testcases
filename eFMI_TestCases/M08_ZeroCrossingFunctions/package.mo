@@ -1,8 +1,6 @@
 within eFMI_TestCases;
 package M08_ZeroCrossingFunctions "Examples for solving nonlinear functions by Brent's algorithm"
-   extends Modelica.Icons.ExamplesPackage;
-
-
+   extends .Modelica.Icons.ExamplesPackage;
 
   annotation (preferredView="info", Documentation(info="<html>
 <p>

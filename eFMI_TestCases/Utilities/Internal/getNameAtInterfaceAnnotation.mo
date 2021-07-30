@@ -6,7 +6,7 @@ function getNameAtInterfaceAnnotation "Returns the content of the annotation __i
 
 algorithm
 
-  annot := ModelManagement.Structure.AST.GetAnnotation(modelName, "__iti_namesAtInterface");
+  annot := ModelManagement.Structure.AST.Classes.GetAnnotation(modelName, "__iti_namesAtInterface");
   ok := (Modelica.Utilities.Strings.length(annot) >= 10);
 
 annotation(__Dymola_interactive=true);

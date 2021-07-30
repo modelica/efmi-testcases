@@ -1,28 +1,28 @@
 within eFMI_TestCases.M09_MixingUnit_FBL.TestSetups;
 partial model BaseSetup
   extends .eFMI_TestCases.Utilities.ClockedContinuousTwin;
-  extends Modelica.Icons.Example;
+  extends .Modelica.Icons.Example;
 
   replaceable Controllers.Controller controller
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  Modelica.Blocks.Sources.Step step(
-    height=-0.848*0.3,
-    offset=0.848*(1 - 0.42),
-    startTime=0.1)
+  .Modelica.Blocks.Sources.Step step(
+    height = -0.848*0.3,
+    offset = 0.848*(1 - 0.42),
+    startTime = 0.1)
     annotation (Placement(transformation(
       extent={{-80,-4},{-60,16}},
       rotation = 0)));
 
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
     annotation (Placement(transformation(extent={{-78,-38},{-62,-22}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked ref if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked ref if is_clocked
     annotation (Placement(transformation(extent={{-46,0},{-34,12}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample c if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Sample c if is_clocked
     annotation (Placement(transformation(extent={{6,-56},{-6,-44}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample T if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Sample T if is_clocked
     annotation (Placement(transformation(extent={{6,-36},{-6,-24}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold T_c if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold T_c if is_clocked
     annotation (Placement(transformation(extent={{24,-6},{36,6}})));
 
 equation

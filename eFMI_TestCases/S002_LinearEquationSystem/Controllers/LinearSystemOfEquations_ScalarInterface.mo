@@ -1,26 +1,34 @@
 within eFMI_TestCases.S002_LinearEquationSystem.Controllers;
 block LinearSystemOfEquations_ScalarInterface
-  extends Modelica.Blocks.Icons.Block;
+  extends .Modelica.Blocks.Icons.Block;
   extends eFMI_TestCases.Icons.Controller;
 
-  Modelica.Blocks.Interfaces.RealInput u1(min=-1.0e7, max=1.0e7)
+  .Modelica.Blocks.Interfaces.RealInput u1(
+    min = -1.0e7,
+    max = 1.0e7)
     annotation (Placement(transformation(extent = {{-140,40},{-100,80}})));
-  Modelica.Blocks.Interfaces.RealInput u2(min=-1.0e7, max=1.0e7)
+  .Modelica.Blocks.Interfaces.RealInput u2(
+    min = -1.0e7,
+    max = 1.0e7)
     annotation (Placement(transformation(extent = {{-140,0},{-100,40}})));
-  Modelica.Blocks.Interfaces.RealInput u3(min=-1.0e7, max=1.0e7)
+  .Modelica.Blocks.Interfaces.RealInput u3(
+    min = -1.0e7,
+    max = 1.0e7)
     annotation (Placement(transformation(extent = {{-140,-42},{-100,-2}})));
-  Modelica.Blocks.Interfaces.RealInput u4(min=-1.0e7, max=1.0e7)
+  .Modelica.Blocks.Interfaces.RealInput u4(
+    min = -1.0e7,
+    max = 1.0e7)
     annotation (Placement(transformation(extent = {{-140,-80},{-100,-40}})));
-  Modelica.Blocks.Interfaces.RealOutput y1
+  .Modelica.Blocks.Interfaces.RealOutput y1
     annotation (Placement(transformation(extent = {{100,50},{120,70}})));
-  Modelica.Blocks.Interfaces.RealOutput y2
+  .Modelica.Blocks.Interfaces.RealOutput y2
     annotation (Placement(transformation(extent = {{100,10},{120,30}})));
-  Modelica.Blocks.Interfaces.RealOutput y3
+  .Modelica.Blocks.Interfaces.RealOutput y3
     annotation (Placement(transformation(extent = {{100,-30},{120,-10}})));
-  Modelica.Blocks.Interfaces.RealOutput y4
+  .Modelica.Blocks.Interfaces.RealOutput y4
     annotation (Placement(transformation(extent = {{100,-70},{120,-50}})));
 
-  constant Real pi = Modelica.Constants.pi;
+  constant Real pi = .Modelica.Constants.pi;
 
   Real x[4](start = {-3, 7, 19, 1});
   Real v[4](start = zeros(4));

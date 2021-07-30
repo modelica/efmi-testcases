@@ -1,7 +1,6 @@
 within eFMI_TestCases;
 package S003_VehicleModel "Example of a vehicle model (used in the eFMI specification)"
-  extends Modelica.Icons.ExamplesPackage;
-
+  extends .Modelica.Icons.ExamplesPackage;
 
 annotation(Documentation(info="<html>
 <p>

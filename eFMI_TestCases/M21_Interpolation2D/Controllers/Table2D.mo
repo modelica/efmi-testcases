@@ -1,6 +1,12 @@
 within eFMI_TestCases.M21_Interpolation2D.Controllers;
 block Table2D
-  extends Modelica.Blocks.Interfaces.SI2SO(u1(min = -4.0, max = 4.0), u2(min = -5.0, max = 5.0));
+  extends .Modelica.Blocks.Interfaces.SI2SO(
+    u1(
+      min = -4.0,
+      max = 4.0),
+    u2(
+      min = -5.0,
+      max = 5.0));
   extends eFMI_TestCases.Icons.Controller;
 
   parameter Real u1_data[:] = {-2, -1, 0, 1, 2};
@@ -9,14 +15,15 @@ block Table2D
   parameter Integer nu2 = size(u2_data, 1);
   parameter Real y_data[nu1, nu2] = [u1_data]*transpose([u2_data]);
 
-  eFMI.Tables.CombiTable2D table(
+  .eFMI.Tables.CombiTable2Ds table(
     efmi = true,
     final efmi_nu1 = nu1,
     final efmi_nu2 = nu2,
     final table = [0,                transpose([u2_data[1:nu2]]);
                    [u1_data[1:nu1]], y_data[1:nu1, 1:nu2]])
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.Blocks.Nonlinear.Limiter limiter(uMax = 6.0)
+  .Modelica.Blocks.Nonlinear.Limiter limiter(
+    uMax = 6.0)
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
 
 equation

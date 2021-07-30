@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M25_MaxHold "Example of a continuous version of a max hold block (reinit in when-clause)"
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
   annotation (Documentation(info="<html>
 <p>

@@ -1,5 +1,5 @@
 within eFMI_TestCases.M10_ControlledSliderCrank;
 package Tests
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
 end Tests;

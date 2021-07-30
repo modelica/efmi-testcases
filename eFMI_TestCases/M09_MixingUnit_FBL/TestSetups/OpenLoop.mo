@@ -2,16 +2,16 @@ within eFMI_TestCases.M09_MixingUnit_FBL.TestSetups;
 model OpenLoop
   extends BaseSetup;
 
-  Modelica.Blocks.Sources.Sine sine(
-    amplitude=0.14,
-    freqHz=0.002,
-    phase=1.5707963267949,
-    offset=0.35)
+  .Modelica.Blocks.Sources.Sine sine(
+    amplitude = 0.14,
+    f = 0.002,
+    phase = 1.5707963267949,
+    offset = 0.35)
     annotation (Placement(transformation(extent={{60,-70},{40,-50}})));
-  Modelica.Blocks.Sources.Sine sine1(
-    amplitude=15,
-    freqHz=0.0009,
-    offset=311)
+  .Modelica.Blocks.Sources.Sine sine1(
+    amplitude = 15,
+    f = 0.0009,
+    offset = 311)
     annotation (Placement(transformation(extent={{60,-40},{40,-20}})));
 
 equation

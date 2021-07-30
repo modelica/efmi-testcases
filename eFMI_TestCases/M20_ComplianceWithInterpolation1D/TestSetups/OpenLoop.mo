@@ -6,22 +6,22 @@ model OpenLoop
   replaceable Controllers.DriveTrain driveTrain
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  Modelica.Blocks.Sources.Ramp ramp(height=30, duration=0.5)
+  .Modelica.Blocks.Sources.Ramp ramp(height=30, duration=0.5)
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked w_ref if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked w_ref if is_clocked
     annotation (Placement(transformation(extent={{-36,6},{-24,-6}})));
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicExactClock clock(
-    factor=1,
-    resolution=Modelica_Synchronous.Types.Resolution.ms,
-    useSolver=true,
-    solverMethod="Rosenbrock1")  if is_clocked
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock clock(
+    factor = 1,
+    resolution = .Modelica.Clocked.Types.Resolution.ms,
+    useSolver = true,
+    solverMethod = "Rosenbrock1") if is_clocked
     annotation (Placement(transformation(extent={{-78,42},{-62,58}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold w if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold w if is_clocked
     annotation (Placement(transformation(extent={{34,-6},{46,6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold torque if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold torque if is_clocked
     annotation (Placement(transformation(extent={{34,-46},{46,-34}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold w_diff if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold w_diff if is_clocked
     annotation (Placement(transformation(extent={{34,34},{46,46}})));
 
 equation

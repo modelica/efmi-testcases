@@ -1,10 +1,10 @@
 within eFMI_TestCases.M09_MixingUnit_FBL.Utilities;
 block InputToState
-  Modelica.Blocks.Interfaces.RealInput xs
+  .Modelica.Blocks.Interfaces.RealInput xs
     annotation (
       useAsInputForState = x,
       Placement(transformation(extent = {{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealInput x
+  .Modelica.Blocks.Interfaces.RealInput x
     annotation (Placement(transformation(extent = {{140,-20},{100,20}})));
 
   final Real x_xs_clock_partition = xs - x

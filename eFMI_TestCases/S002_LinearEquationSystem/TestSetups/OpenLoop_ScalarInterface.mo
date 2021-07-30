@@ -5,21 +5,21 @@ model OpenLoop_ScalarInterface
   replaceable Controllers.LinearSystemOfEquations_ScalarInterface controller
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
 
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_y1
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_y1
     annotation (Placement(transformation(extent={{74,44},{86,56}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_y2
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_y2
     annotation (Placement(transformation(extent={{74,14},{86,26}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_y3
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_y3
     annotation (Placement(transformation(extent={{74,-26},{86,-14}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_y4
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_y4
     annotation (Placement(transformation(extent={{74,-56},{86,-44}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked sample_u1
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked sample_u1
     annotation (Placement(transformation(extent={{-6,36},{6,24}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample sample_u2
+  .Modelica.Clocked.RealSignals.Sampler.Sample sample_u2
     annotation (Placement(transformation(extent={{-6,16},{6,4}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample sample_u3
+  .Modelica.Clocked.RealSignals.Sampler.Sample sample_u3
     annotation (Placement(transformation(extent={{-6,-4},{6,-16}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample sample_u4
+  .Modelica.Clocked.RealSignals.Sampler.Sample sample_u4
     annotation (Placement(transformation(extent={{-6,-24},{6,-36}})));
 
 equation

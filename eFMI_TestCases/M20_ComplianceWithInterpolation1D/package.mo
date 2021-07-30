@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M20_ComplianceWithInterpolation1D "Example of a simple, compliant drive train using efmi built-in function interpolation1D"
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
 annotation (Documentation(info="<html>
 <p>

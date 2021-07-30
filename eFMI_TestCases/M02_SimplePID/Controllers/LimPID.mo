@@ -2,155 +2,270 @@ within eFMI_TestCases.M02_SimplePID.Controllers;
 block LimPID
   "P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting"
 
-  import Modelica.Blocks.Types.InitPID;
-  import Modelica.Blocks.Types.Init;
-  import Modelica.Blocks.Types.SimpleController;
+  import InitPID =  Modelica.Blocks.Types.Init;
+  import  Modelica.Blocks.Types.Init;
+  import  Modelica.Blocks.Types.SimpleController;
 
-  extends Modelica.Blocks.Interfaces.SVcontrol(u_s(min=-1e4, max=1e4), u_m(min=-1e4, max=1e4), y(min=-1e7, max=1e7));
+  extends .Modelica.Blocks.Interfaces.SVcontrol(
+    u_s(
+      min = -1e4,
+      max = 1e4),
+    u_m(
+      min = -1e4,
+      max = 1e4),
+    y(min = -1e7,
+      max = 1e7));
   //output Real controlError = u_s - u_m
   //  "Control error (set point - measurement)";
 
+  constant .Modelica.Units.SI.Time unitTime = 1
+    annotation (HideResult = true);
+
   parameter .Modelica.Blocks.Types.SimpleController controllerType=
-         .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
-  parameter Real k(min=0, unit="1") = 100 "Gain of controller";
-  parameter Modelica.SIunits.Time Ti(min=Modelica.Constants.small)=0.1
-    "Time constant of Integrator block" annotation (Dialog(enable=
+    .Modelica.Blocks.Types.SimpleController.PID
+    "Type of controller";
+  parameter Real k(
+    min = 0,
+    unit = "1") = 100
+    "Gain of controller";
+  parameter .Modelica.Units.SI.Time Ti(
+    min = .Modelica.Constants.small) = 0.1
+    "Time constant of Integrator block"
+    annotation (
+      Dialog(
+        enable=
           controllerType == .Modelica.Blocks.Types.SimpleController.PI or
           controllerType == .Modelica.Blocks.Types.SimpleController.PID));
-  parameter Modelica.SIunits.Time Td(min=0)=0.001
-    "Time constant of Derivative block" annotation (Dialog(enable=
+  parameter .Modelica.Units.SI.Time Td(
+    min = 0) = 0.001
+    "Time constant of Derivative block"
+    annotation (
+      Dialog(
+        enable=
           controllerType == .Modelica.Blocks.Types.SimpleController.PD or
           controllerType == .Modelica.Blocks.Types.SimpleController.PID));
-  parameter Real yMax(start=1) = 12 "Upper limit of output";
-  parameter Real yMin=-yMax "Lower limit of output";
-  parameter Real wp(min=0) = 1
+  parameter Real yMax(
+    start = 1) = 12
+    "Upper limit of output";
+  parameter Real yMin = -yMax
+    "Lower limit of output";
+  parameter Real wp(
+    min = 0) = 1
     "Set-point weight for Proportional block (0..1)";
-  parameter Real wd(min=0) = 0 "Set-point weight for Derivative block (0..1)"
-       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
-                                controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-  parameter Real Ni(min=100*Modelica.Constants.eps) = 0.1
+  parameter Real wd(
+    min = 0) = 0
+    "Set-point weight for Derivative block (0..1)"
+    annotation (
+      Dialog(
+        enable=
+          controllerType == .Modelica.Blocks.Types.SimpleController.PD or
+          controllerType == .Modelica.Blocks.Types.SimpleController.PID));
+  parameter Real Ni(
+    min = 100* .Modelica.Constants.eps) = 0.1
     "Ni*Ti is time constant of anti-windup compensation"
-     annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
-                              controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-  parameter Real Nd(min=100*Modelica.Constants.eps) = 10
+    annotation (
+      Dialog(
+        enable=
+          controllerType == .Modelica.Blocks.Types.SimpleController.PI or
+          controllerType == .Modelica.Blocks.Types.SimpleController.PID));
+  parameter Real Nd(
+    min = 100* .Modelica.Constants.eps) = 10
     "The higher Nd, the more ideal the derivative block"
-       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
-                                controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-  parameter Real xi_start=0
+    annotation (
+      Dialog(
+        enable=
+          controllerType == .Modelica.Blocks.Types.SimpleController.PD or
+          controllerType == .Modelica.Blocks.Types.SimpleController.PID));
+  parameter Real xi_start = 0
     "Initial or guess value value for integrator output (= integrator state)"
-    annotation (Dialog(group="Initialization",
-                enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
-                       controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-  parameter Real xd_start=0
+    annotation (
+      Dialog(
+        group="Initialization",
+        enable=
+          controllerType == .Modelica.Blocks.Types.SimpleController.PI or
+          controllerType == .Modelica.Blocks.Types.SimpleController.PID));
+  parameter Real xd_start = 0
     "Initial or guess value for state of derivative block"
-    annotation (Dialog(group="Initialization",
-                         enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
-                                controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-  parameter Real y_start=0 "Initial value of output"
-    annotation(Dialog(group=
-          "Initialization"));
-  parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
-    annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+    annotation (
+      Dialog(
+        group="Initialization",
+        enable=
+          controllerType == .Modelica.Blocks.Types.SimpleController.PD or
+          controllerType == .Modelica.Blocks.Types.SimpleController.PID));
+  parameter Real y_start = 0
+    "Initial value of output"
+    annotation (
+      Dialog(
+        group="Initialization"));
+  parameter Boolean strict = false
+    "= true, if strict limits with noEvent(..)"
+    annotation (
+      Evaluate=true,
+      choices(checkBox=true),
+      Dialog(tab="Advanced"));
 
-  constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
-
-  Modelica.Blocks.Math.Add addP(k1=wp, k2=-1)
+  .Modelica.Blocks.Math.Add addP(
+    k1 = wp,
+    k2 = -1)
     annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-  Modelica.Blocks.Math.Add addD(k1=wd, k2=-1) if with_D
+  .Modelica.Blocks.Math.Add addD(
+    k1 = wd,
+    k2 = -1) if with_D
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-  Modelica.Blocks.Math.Gain P(k=1)
+  .Modelica.Blocks.Math.Gain P(
+    k = 1)
     annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-  Modelica.Blocks.Continuous.Integrator I(y(min=-100, max=100),
-    k=unitTime/Ti,
-    y_start=xi_start)                             if with_I
+  .Modelica.Blocks.Continuous.Integrator I(
+    y(min = -100,
+      max = 100),
+    k = unitTime/Ti,
+    y_start = xi_start) if with_I
     annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
-  Modelica.Blocks.Continuous.Derivative D(x(min=-1e6, max=1e6),
-    k=Td/unitTime,
-    T=max([Td/Nd,1.e-14]),
-    x_start=xd_start,
-    initType=Modelica.Blocks.Types.Init.InitialState)
-                                            if with_D
+  .Modelica.Blocks.Continuous.Derivative D(
+    x(min = -1e6,
+      max = 1e6),
+    k = Td/unitTime,
+    T = max([Td/Nd, 1.e-14]),
+    x_start = xd_start,
+    initType = .Modelica.Blocks.Types.Init.InitialState) if with_D
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-  Modelica.Blocks.Math.Gain gainPID(k=k)
+  .Modelica.Blocks.Math.Gain gainPID(
+    k = k)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
-  Modelica.Blocks.Math.Add3 addPID
+  .Modelica.Blocks.Math.Add3 addPID
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-  Modelica.Blocks.Math.Add3 addI(k2=-1) if with_I
+  .Modelica.Blocks.Math.Add3 addI(
+    k2 = -1) if with_I
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
-  Modelica.Blocks.Math.Add addSat(k1=+1, k2=-1) if with_I annotation (Placement(
-        transformation(
-        origin={80,-50},
-        extent={{-10,-10},{10,10}},
-        rotation=270)));
-  Modelica.Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I
+  .Modelica.Blocks.Math.Add addSat(
+    k1 = +1,
+    k2 = -1) if with_I
+    annotation (Placement(transformation(
+      origin={80,-50},
+      extent={{-10,-10},{10,10}},
+      rotation=270)));
+  .Modelica.Blocks.Math.Gain gainTrack(
+    k = 1/(k*Ni)) if with_I
     annotation (Placement(transformation(extent={{40,-80},{20,-60}})));
   Utilities.Limiter limiter(
-    uMax=yMax,
-    uMin=yMin,
-    strict=strict)
+    uMax = yMax,
+    uMin = yMin,
+    strict = strict)
     annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+  .Modelica.Blocks.Sources.Constant Dzero(
+    k = 0) if not with_D
+    annotation (Placement(transformation(extent={{-30,20},{-20,30}})));
+  .Modelica.Blocks.Sources.Constant Izero(
+    k = 0) if not with_I
+    annotation (Placement(transformation(extent={{10,-55},{0,-45}})));
 
 protected
-  parameter Boolean with_I = controllerType==SimpleController.PI or
-                             controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
-  parameter Boolean with_D = controllerType==SimpleController.PD or
-                             controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
-public
-  Modelica.Blocks.Sources.Constant Dzero(k=0) if not with_D
-    annotation (Placement(transformation(extent={{-30,20},{-20,30}})));
-  Modelica.Blocks.Sources.Constant Izero(k=0) if not with_I
-    annotation (Placement(transformation(extent={{10,-55},{0,-45}})));
+  parameter Boolean with_I=
+    controllerType == SimpleController.PI or
+    controllerType == SimpleController.PID
+    annotation (
+      Evaluate=true,
+      HideResult=true);
+  parameter Boolean with_D=
+    controllerType == SimpleController.PD or
+    controllerType == SimpleController.PID
+    annotation (
+      Evaluate=true,
+      HideResult=true);
+
 equation
-  connect(u_s, addP.u1) annotation (Line(points={{-120,0},{-96,0},{-96,56},{
-          -82,56}}, color={0,0,127}));
-  connect(u_s, addD.u1) annotation (Line(points={{-120,0},{-96,0},{-96,6},{
-          -82,6}}, color={0,0,127}));
-  connect(u_s, addI.u1) annotation (Line(points={{-120,0},{-96,0},{-96,-42},{
-          -82,-42}}, color={0,0,127}));
-  connect(addP.y, P.u) annotation (Line(points={{-59,50},{-42,50}}, color={0,
-          0,127}));
+  connect(u_s, addP.u1)
+    annotation (Line(
+      points={{-120,0},{-96,0},{-96,56},{-82,56}},
+      color={0,0,127}));
+  connect(u_s, addD.u1)
+    annotation (Line(
+      points={{-120,0},{-96,0},{-96,6},{-82,6}},
+      color={0,0,127}));
+  connect(u_s, addI.u1)
+    annotation (Line(
+      points={{-120,0},{-96,0},{-96,-42},{-82,-42}},
+      color={0,0,127}));
+  connect(addP.y, P.u)
+    annotation (Line(
+      points={{-59,50},{-42,50}},
+      color={0,0,127}));
   connect(addD.y, D.u)
-    annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
-  connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-42,-50}}, color={
-          0,0,127}));
-  connect(P.y, addPID.u1) annotation (Line(points={{-19,50},{-10,50},{-10,8},
-          {-2,8}}, color={0,0,127}));
+    annotation (Line(
+      points={{-59,0},{-42,0}},
+      color={0,0,127}));
+  connect(addI.y, I.u)
+    annotation (Line(
+      points={{-59,-50},{-42,-50}},
+      color={0,0,127}));
+  connect(P.y, addPID.u1)
+    annotation (Line(
+      points={{-19,50},{-10,50},{-10,8},{-2,8}},
+      color={0,0,127}));
   connect(D.y, addPID.u2)
-    annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
-  connect(I.y, addPID.u3) annotation (Line(points={{-19,-50},{-10,-50},{-10,
-          -8},{-2,-8}}, color={0,0,127}));
+    annotation (Line(
+      points={{-19,0},{-2,0}},
+      color={0,0,127}));
+  connect(I.y, addPID.u3)
+    annotation (Line(
+      points={{-19,-50},{-10,-50},{-10,-8},{-2,-8}},
+      color={0,0,127}));
   connect(addPID.y, gainPID.u)
-    annotation (Line(points={{21,0},{28,0}}, color={0,0,127}));
-  connect(gainPID.y, addSat.u2) annotation (Line(points={{51,0},{60,0},{60,
-          -20},{74,-20},{74,-38}}, color={0,0,127}));
+    annotation (Line(
+      points={{21,0},{28,0}},
+      color={0,0,127}));
+  connect(gainPID.y, addSat.u2)
+    annotation (Line(
+      points={{51,0},{60,0},{60,-20},{74,-20},{74,-38}},
+      color={0,0,127}));
   connect(gainPID.y, limiter.u)
-    annotation (Line(points={{51,0},{68,0}}, color={0,0,127}));
-  connect(limiter.y, addSat.u1) annotation (Line(points={{91,0},{94,0},{94,
-          -20},{86,-20},{86,-38}}, color={0,0,127}));
+    annotation (Line(
+      points={{51,0},{68,0}},
+      color={0,0,127}));
+  connect(limiter.y, addSat.u1)
+    annotation (Line(
+      points={{91,0},{94,0},{94,-20},{86,-20},{86,-38}},
+      color={0,0,127}));
   connect(limiter.y, y)
-    annotation (Line(points={{91,0},{110,0}}, color={0,0,127}));
-  connect(addSat.y, gainTrack.u) annotation (Line(points={{80,-61},{80,-70},{
-          42,-70}}, color={0,0,127}));
-  connect(gainTrack.y, addI.u3) annotation (Line(points={{19,-70},{-88,-70},{
-          -88,-58},{-82,-58}}, color={0,0,127}));
-  connect(u_m, addP.u2) annotation (Line(
+    annotation (Line(
+      points={{91,0},{110,0}},
+      color={0,0,127}));
+  connect(addSat.y, gainTrack.u)
+    annotation (Line(
+      points={{80,-61},{80,-70},{42,-70}},
+      color={0,0,127}));
+  connect(gainTrack.y, addI.u3)
+    annotation (Line(
+      points={{19,-70},{-88,-70},{-88,-58},{-82,-58}},
+      color={0,0,127}));
+  connect(u_m, addP.u2)
+    annotation (Line(
       points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
       color={0,0,127},
       thickness=0.5));
-  connect(u_m, addD.u2) annotation (Line(
+  connect(u_m, addD.u2)
+    annotation (Line(
       points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}},
       color={0,0,127},
       thickness=0.5));
-  connect(u_m, addI.u2) annotation (Line(
+  connect(u_m, addI.u2)
+    annotation (Line(
       points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
       color={0,0,127},
       thickness=0.5));
-  connect(Dzero.y, addPID.u2) annotation (Line(points={{-19.5,25},{-14,25},{
-          -14,0},{-2,0}}, color={0,0,127}));
-  connect(Izero.y, addPID.u3) annotation (Line(points={{-0.5,-50},{-10,-50},{
-          -10,-8},{-2,-8}}, color={0,0,127}));
-  annotation (defaultComponentName="PID",
-    Icon(coordinateSystem(
+  connect(Dzero.y, addPID.u2)
+    annotation (Line(
+      points={{-19.5,25},{-14,25},{-14,0},{-2,0}},
+      color={0,0,127}));
+  connect(Izero.y, addPID.u3)
+    annotation (Line(
+      points={{-0.5,-50},{-10,-50},{-10,-8},{-2,-8}},
+      color={0,0,127}));
+
+  annotation (
+    defaultComponentName="PID",
+    Icon(
+      coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
@@ -251,7 +366,7 @@ together) and using the following strategy:
 This block can be initialized in different
 ways controlled by parameter <b>initType</b>. The possible
 values of initType are defined in
-<a href=\"modelica://Modelica.Blocks.Types.InitPID\">Modelica.Blocks.Types.InitPID</a>.
+<a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a>.
 This type is identical to
 <a href=\"modelica://Modelica.Blocks.Types.Init\">Types.Init</a>,
 with the only exception that the additional option
@@ -297,7 +412,7 @@ blocks inside the PID controller are initialized according to the following tabl
 <p>
 In many cases, the most useful initial condition is
 <b>SteadyState</b> because initial transients are then no longer
-present. If initType = InitPID.SteadyState, then in some
+present. If initType = Init.SteadyState, then in some
 cases difficulties might occur. The reason is the
 equation of the integrator:
 </p>

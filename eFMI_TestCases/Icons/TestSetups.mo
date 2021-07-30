@@ -1,6 +1,6 @@
 within eFMI_TestCases.Icons;
 partial class TestSetups
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
   annotation (Icon(graphics={
   Polygon(
     origin={11.3835,5.8582},

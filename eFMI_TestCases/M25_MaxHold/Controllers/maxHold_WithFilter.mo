@@ -2,17 +2,20 @@ within eFMI_TestCases.M25_MaxHold.Controllers;
 model maxHold_WithFilter
   extends maxHold_interface;
 
-  parameter Integer n=3 "Order of filter";
-  parameter Modelica.SIunits.Frequency f=4 "Cut-off frequency";
+  parameter Integer n = 3
+    "Order of filter";
+  parameter .Modelica.Units.SI.Frequency f = 4
+    "Cut-off frequency";
 
   maxHold maxhold(
-    holdDuration=holdDuration,
-    fallingRate=fallingRate,
-    uMin=uMin) annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-  Modelica.Blocks.Continuous.CriticalDamping criticalDamping(
-    n=n,
-    f=f,
-    initType=Modelica.Blocks.Types.Init.NoInit)
+    holdDuration = holdDuration,
+    fallingRate = fallingRate,
+    uMin=uMin)
+    annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+  .Modelica.Blocks.Continuous.CriticalDamping criticalDamping(
+    n = n,
+    f = f,
+    initType = .Modelica.Blocks.Types.Init.NoInit)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
 
 equation

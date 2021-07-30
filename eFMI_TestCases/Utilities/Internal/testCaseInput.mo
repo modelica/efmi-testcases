@@ -3,7 +3,6 @@ function testCaseInput
 
   output String text;
 
-  import ModelManagement.Structure.AST.ClassesInPackage;
   import Modelica.Utilities.Streams.print;
 
 protected
@@ -36,17 +35,17 @@ algorithm
 
   first := true;
 
-  Package1 := ClassesInPackage("eFMI_TestCases");
+  Package1 := ModelManagement.Structure.AST.Misc.ClassesInPackage("eFMI_TestCases");
   for pack1 in Package1 loop
     if Modelica.Utilities.Strings.substring(pack1,1,1) == "M" or Modelica.Utilities.Strings.substring(pack1,1,1) == "S" then
 
       UseCaseModel := fill("",0);
       ReferenceModel := fill("",0);
-      if ModelManagement.Structure.AST.ClassExists("eFMI_TestCases." + pack1 + ".ReferenceTests") then
-          Package4 := ClassesInPackage("eFMI_TestCases." + pack1 + ".ReferenceTests");
+      if ModelManagement.Structure.AST.Misc.ClassExists("eFMI_TestCases." + pack1 + ".ReferenceTests") then
+          Package4 := ModelManagement.Structure.AST.Misc.ClassesInPackage("eFMI_TestCases." + pack1 + ".ReferenceTests");
           for pack4 in Package4 loop
               name4 := pack1 + ".ReferenceTests." + pack4;
-              annot := ModelManagement.Structure.AST.GetAnnotation("eFMI_TestCases." + name4, "__fmi_OriginalModel_ExportReference");
+              annot := ModelManagement.Structure.AST.Classes.GetAnnotation("eFMI_TestCases." + name4, "__fmi_OriginalModel_ExportReference");
               if Modelica.Utilities.Strings.length(annot) == 0 then
                 // no annotation specified, ignore it
               elseif Modelica.Utilities.Strings.length(annot) < 4 then
@@ -59,7 +58,7 @@ algorithm
           end for;
       end if;
 
-      Package2 := ClassesInPackage("eFMI_TestCases." + pack1);
+      Package2 := ModelManagement.Structure.AST.Misc.ClassesInPackage("eFMI_TestCases." + pack1);
       foundTest := false;
       for pack2 in Package2 loop
         if Modelica.Utilities.Strings.isEqual(pack2,"Tests") then
@@ -67,7 +66,7 @@ algorithm
         end if;
       end for;
       if foundTest then
-        Package3 := ClassesInPackage("eFMI_TestCases." + pack1 + ".Tests");
+        Package3 := ModelManagement.Structure.AST.Misc.ClassesInPackage("eFMI_TestCases." + pack1 + ".Tests");
         for pack3 in Package3 loop
             name := pack1 + ".Tests." + pack3;
             // Check, if model is the source of a test case
@@ -77,7 +76,7 @@ algorithm
             else
 
                 // Check for FMU name in annotation
-                annot := ModelManagement.Structure.AST.GetAnnotation("eFMI_TestCases." + name, "__fmi_modelExportName");
+                annot := ModelManagement.Structure.AST.Classes.GetAnnotation("eFMI_TestCases." + name, "__fmi_modelExportName");
                 if Modelica.Utilities.Strings.length(annot) < 8 then
                   print("Cannot find a proper name for the FMU to be exported (will use full name) for test case " + name);
                   fmuName := name;
@@ -86,7 +85,7 @@ algorithm
                   fmuName := Modelica.Utilities.Strings.substring(annot,3,len-1);
                 end if;
 
-                annot := ModelManagement.Structure.AST.GetAnnotation("eFMI_TestCases." + name, "__fmi_sourceModel");
+                annot := ModelManagement.Structure.AST.Classes.GetAnnotation("eFMI_TestCases." + name, "__fmi_sourceModel");
                 len := Modelica.Utilities.Strings.length(annot);
                 if len > 3 then
                   sourceName := Modelica.Utilities.Strings.substring(annot,3,len-1);

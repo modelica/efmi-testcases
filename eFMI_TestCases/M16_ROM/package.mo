@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M16_ROM "Example for a reduced order model (ROM) of thermal heat transfer"
-    extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
   annotation (preferredView="info", Documentation(info="<html>
 <p>This is a test model for a linear, time-variant differential algebraic equation system in the following form: </p>

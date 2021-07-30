@@ -6,11 +6,14 @@ model Groundhook
 
   parameter Real gainGH = 2 "Gain of magic Skyhook controller";
 
-  Modelica.Blocks.Interfaces.RealInput v_damper "Damper velocity"
+  .Modelica.Blocks.Interfaces.RealInput v_damper
+    "Damper velocity"
     annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
-  Modelica.Blocks.Interfaces.RealOutput u_damper "Control signal of damper"
+  .Modelica.Blocks.Interfaces.RealOutput u_damper
+    "Control signal of damper"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  Modelica.Blocks.Interfaces.RealInput v_wheel "Velocity of wheel"
+  .Modelica.Blocks.Interfaces.RealInput v_wheel
+    "Velocity of wheel"
     annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
 
 protected

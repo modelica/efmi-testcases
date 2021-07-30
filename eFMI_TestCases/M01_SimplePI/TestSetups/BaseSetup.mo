@@ -3,26 +3,24 @@ partial model BaseSetup
   extends .eFMI_TestCases.Utilities.ClockedContinuousTwin;
   extends .Modelica.Icons.Example;
 
-
   replaceable Controllers.PI controller
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  Modelica.Blocks.Sources.Ramp reference(
+  .Modelica.Blocks.Sources.Ramp reference(
     duration = 2,
     startTime = 0.1)
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock  if is_clocked
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
     annotation (Placement(transformation(extent={{-78,42},{-62,58}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked r if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked r if is_clocked
     annotation (Placement(transformation(extent={{-36,6},{-24,-6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample y  if is_clocked
-    annotation (Placement(
-      transformation(
-      extent={{-6,-6},{6,6}},
-      rotation=90,
-      origin={0,-30})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold u  if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Sample y if is_clocked annotation (
+      Placement(transformation(
+        extent={{-6,-6},{6,6}},
+        rotation=90,
+        origin={0,-30})));
+  .Modelica.Clocked.RealSignals.Sampler.Hold u if is_clocked
     annotation (Placement(transformation(extent={{24,-6},{36,6}})));
 
 equation

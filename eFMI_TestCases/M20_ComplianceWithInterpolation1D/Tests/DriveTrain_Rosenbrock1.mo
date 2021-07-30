@@ -4,7 +4,7 @@ model DriveTrain_Rosenbrock1
     final is_clocked = true,
     final clock(
       factor = 1,
-      resolution = Modelica_Synchronous.Types.Resolution.ms,
+      resolution = .Modelica.Clocked.Types.Resolution.ms,
       useSolver = true,
       solverMethod = "Rosenbrock1"));
 

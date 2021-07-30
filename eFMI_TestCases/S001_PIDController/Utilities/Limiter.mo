@@ -1,13 +1,21 @@
 within eFMI_TestCases.S001_PIDController.Utilities;
 block Limiter "Limit the range of a signal"
-  parameter Real uMax(start=1) "Upper limits of input signals";
-  parameter Real uMin= -uMax "Lower limits of input signals";
+  extends .Modelica.Blocks.Interfaces.SISO;
 
-  extends Modelica.Blocks.Interfaces.SISO;
+  parameter Real uMax(
+    start = 1)
+    "Upper limits of input signals";
+  parameter Real uMin = -uMax
+    "Lower limits of input signals";
 
 equation
-  assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
-                       ") < uMin (=" + String(uMin) + ")");
+  assert(
+    uMax >= uMin,
+    "Limiter: Limits must be consistent. However, uMax (="
+    + String(uMax)
+    + ") < uMin (="
+    + String(uMin)
+    + ")");
 
   y = if u > uMax then uMax else if u < uMin then uMin else u;
 

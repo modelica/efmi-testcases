@@ -2,7 +2,7 @@ within eFMI_TestCases.M04_DrivetrainTorqueControl.Controllers;
 partial block ControllerInterface "Common interface of torque controllers."
   extends PlantModels.PlantParameterInterface(
     final for_inversion = true);
-  extends Modelica.Blocks.Icons.Block;
+  extends .Modelica.Blocks.Icons.Block;
   extends eFMI_TestCases.Icons.Controller;
 
   constant Integer f_order = 2
@@ -20,15 +20,15 @@ partial block ControllerInterface "Common interface of torque controllers."
   parameter Real tauM_max = 1230
     "Max motor torque";
 
-  Modelica.Blocks.Interfaces.RealOutput M_motor(
+  .Modelica.Blocks.Interfaces.RealOutput M_motor(
     min = -1e6,
     max = 1e6)
     annotation (Placement(transformation(extent = {{100,-10},{120.5,10}})));
-  Modelica.Blocks.Interfaces.RealInput M_desired(
+  .Modelica.Blocks.Interfaces.RealInput M_desired(
     min = -1e6,
     max = 1e6)
     annotation (Placement(transformation(extent = {{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealInput wRel(
+  .Modelica.Blocks.Interfaces.RealInput wRel(
     min = -1e4,
     max = 1e4)
     annotation (Placement(transformation(

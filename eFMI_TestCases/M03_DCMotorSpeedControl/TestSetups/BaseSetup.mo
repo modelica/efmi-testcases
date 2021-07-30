@@ -1,12 +1,12 @@
 within eFMI_TestCases.M03_DCMotorSpeedControl.TestSetups;
 partial model BaseSetup
   extends .eFMI_TestCases.Utilities.ClockedContinuousTwin;
-  extends Modelica.Icons.Example;
+  extends .Modelica.Icons.Example;
 
   parameter Boolean is_clocked = false
     "Configures whether the ontroller is embedded as clocked partition or not.";
 
-  Modelica.Blocks.Sources.Ramp ramp(
+  .Modelica.Blocks.Sources.Ramp ramp(
     height = 3.0,
     duration = 1)
     annotation (Placement(transformation(extent = {{-70,-10},{-50,10}})));
@@ -16,21 +16,22 @@ partial model BaseSetup
     annotation (Placement(transformation(extent = {{-10,-10},{10,10}})));
 
   // Clocked configuration:
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock(
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock(
     useSolver = false,
     period = -1.0,
     solverMethod = "") if is_clocked
     "Must still be configured when 'clocked = true'."
-    annotation (Placement(transformation(extent = {{-68,42},{-52,58}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked wLoadRef  if is_clocked
-    annotation (Placement(transformation(extent = {{-36,6},{-24,-6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold vMotor  if is_clocked
-    annotation (Placement(transformation(extent = {{26,-6},{38,6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample wMotor if is_clocked
-    annotation (Placement(transformation(
-      extent = {{-6,6},{6,-6}},
-      rotation = 90,
-      origin = {0,-30})));
+    annotation (Placement(transformation(extent={{-68,42},{-52,58}})));
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked wLoadRef if is_clocked
+    annotation (Placement(transformation(extent={{-36,6},{-24,-6}})));
+  .Modelica.Clocked.RealSignals.Sampler.Hold vMotor if is_clocked
+    annotation (Placement(transformation(extent={{26,-6},{38,6}})));
+  .Modelica.Clocked.RealSignals.Sampler.Sample wMotor if is_clocked
+    annotation (
+      Placement(transformation(
+        extent={{-6,6},{6,-6}},
+        rotation=90,
+        origin={0,-30})));
 
 equation
   if is_clocked then

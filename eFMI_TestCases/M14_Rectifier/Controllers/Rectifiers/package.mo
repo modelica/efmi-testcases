@@ -1,6 +1,6 @@
 within eFMI_TestCases.M14_Rectifier.Controllers;
 package Rectifiers "Different rectifier implementations"
-  extends Modelica.Icons.Package;
+  extends .Modelica.Icons.Package;
 
   annotation (Icon(graphics={
         Line(points={{-42,54},{-22,36}}, color={127,127,127}),

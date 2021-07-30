@@ -1,9 +1,6 @@
 ﻿within eFMI_TestCases;
 package M03_DCMotorSpeedControl "Example of a DC-motor controlled by a simple PI controller."
-  extends Modelica.Icons.ExamplesPackage;
-
-
-
+  extends .Modelica.Icons.ExamplesPackage;
 
   annotation (preferredView="info", Documentation(info="<html>
 <p>

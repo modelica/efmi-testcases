@@ -2,7 +2,7 @@ within eFMI_TestCases.M25_MaxHold.ReferenceTests;
 model MaxHold_ExplEuler
   extends Tests.MaxHold_ExplEuler;
 
- annotation (experiment(
+  annotation (experiment(
       StopTime=6,
       Interval=0.001),
       __fmi_InterfaceVariable={MapName(from="maxHold_WithFilter.u",to="u"),

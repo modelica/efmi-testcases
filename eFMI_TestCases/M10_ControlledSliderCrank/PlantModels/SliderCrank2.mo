@@ -2,17 +2,19 @@ within eFMI_TestCases.M10_ControlledSliderCrank.PlantModels;
 model SliderCrank2
   extends SliderCrank_interface;
 
-  inner Modelica.Mechanics.MultiBody.World world(
+  parameter .Modelica.Units.SI.Position s_start = 0.6;
+
+  inner .Modelica.Mechanics.MultiBody.World world(
     animateWorld = false,
     gravityArrowLength = 0.1)
     annotation (Placement(transformation(extent = {{-46,-80},{-26,-60}})));
 
-  Modelica.Mechanics.MultiBody.Joints.Revolute rev1(
+  .Modelica.Mechanics.MultiBody.Joints.Revolute rev1(
     useAxisFlange = true,
     cylinderDiameter = 0.02,
     cylinderLength = 0.04)
     annotation (Placement(transformation(extent = {{-18,-60},{2,-80}})));
-  Modelica.Mechanics.MultiBody.Joints.SphericalSpherical sphericalSpherical(
+  .Modelica.Mechanics.MultiBody.Joints.SphericalSpherical sphericalSpherical(
     sphereDiameter = 0.02,
     rodDiameter = 0.01,
     rodLength = 0.5)
@@ -20,14 +22,14 @@ model SliderCrank2
       extent = {{-10,-10},{10,10}},
       rotation = 90,
       origin = {12,-28})));
-  Modelica.Mechanics.MultiBody.Parts.FixedTranslation crank(
+  .Modelica.Mechanics.MultiBody.Parts.FixedTranslation crank(
     height = 0.01,
     r = {0.1,0.0,0})
     annotation (Placement(transformation(
       extent = {{-10,-10},{10,10}},
       rotation = 90,
       origin = {12,-54})));
-  Modelica.Mechanics.Translational.Components.SpringDamper springDamper(
+  .Modelica.Mechanics.Translational.Components.SpringDamper springDamper(
     stateSelect=StateSelect.always,
     s_rel(fixed=true, start=0),
     d = 1,
@@ -37,7 +39,7 @@ model SliderCrank2
       extent = {{10,10},{-10,-10}},
       rotation = -90,
       origin = {30,29})));
-  Modelica.Mechanics.MultiBody.Joints.Prismatic prism1(
+  .Modelica.Mechanics.MultiBody.Joints.Prismatic prism1(
     boxWidth = 0.01,
     boxHeight = 0.01,
     boxWidthDirection = {0,-1,0},
@@ -49,7 +51,7 @@ model SliderCrank2
       extent = {{10,10},{-10,-10}},
       rotation = 90,
       origin = {12,-2})));
-  Modelica.Mechanics.MultiBody.Parts.Fixed fixed(
+  .Modelica.Mechanics.MultiBody.Parts.Fixed fixed(
     animation = false,
     r = {0,0.5,0})
     annotation (Placement(transformation(extent = {{-28,4},{-8,24}})));
@@ -62,24 +64,23 @@ model SliderCrank2
       extent = {{-10,-10},{10,10}},
       rotation = 90,
       origin = {30,58})));
-  Modelica.Mechanics.Translational.Sensors.PositionSensor positionSensor
+  .Modelica.Mechanics.Translational.Sensors.PositionSensor positionSensor
     annotation (Placement(transformation(extent = {{50,58},{70,78}})));
-  Modelica.Mechanics.Rotational.Components.Inertia inertia1(J=0.1)
+  .Modelica.Mechanics.Rotational.Components.Inertia inertia1(J=0.1)
     annotation (Placement(transformation(extent = {{-80,-100},{-60,-80}})));
   Utilities.Mounting1D mounting1D(n = {0,1,0})
     annotation (Placement(transformation(extent = {{26,-12},{46,8}})));
-  Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(
+  .Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(
     f_constant = -mass.m*9.81)
     annotation (Placement(transformation(
       extent = {{-10,-10},{10,10}},
       rotation = -90,
       origin = {30,84})));
-  Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
+  .Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
     annotation (Placement(transformation(extent = {{12,-100},{32,-80}})));
-  Modelica.Mechanics.Rotational.Sources.Torque torque1
+  .Modelica.Mechanics.Rotational.Sources.Torque torque1
     annotation (Placement(transformation(extent = {{-76,-8},{-60,8}})));
 
-  parameter Modelica.SIunits.Position s_start=0.6;
 equation
   connect(rev1.frame_b, crank.frame_a)
     annotation (Line(

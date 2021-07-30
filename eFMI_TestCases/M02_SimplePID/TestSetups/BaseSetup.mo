@@ -6,26 +6,27 @@ partial model BaseSetup
   replaceable Controllers.LimPID controller
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 
-  Modelica.Blocks.Sources.KinematicPTP kinematicPTP(
-    startTime=0.5,
-    deltaq={1.57},
-    qd_max={1},
-    qdd_max={1}) annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-  Modelica.Blocks.Continuous.Integrator integrator(
-    initType=Modelica.Blocks.Types.Init.InitialState)
+  .Modelica.Blocks.Sources.KinematicPTP kinematicPTP(
+    startTime = 0.5,
+    deltaq = {1.57},
+    qd_max = {1},
+    qdd_max = {1})
+    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+  .Modelica.Blocks.Continuous.Integrator integrator(
+    initType = Modelica.Blocks.Types.Init.InitialState)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
 
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
     annotation (Placement(transformation(extent={{-78,42},{-62,58}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked u_s if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked u_s if is_clocked
     annotation (Placement(transformation(extent={{-6,6},{6,-6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample u_m if is_clocked
-    annotation (Placement(
-        transformation(
+  .Modelica.Clocked.RealSignals.Sampler.Sample u_m if is_clocked
+    annotation (
+      Placement(transformation(
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={30,-30})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold y if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold y if is_clocked
     annotation (Placement(transformation(extent={{54,-6},{66,6}})));
 
 equation
@@ -50,5 +51,4 @@ equation
   else
     connect(integrator.y, controller.u_s);
   end if;
-
 end BaseSetup;

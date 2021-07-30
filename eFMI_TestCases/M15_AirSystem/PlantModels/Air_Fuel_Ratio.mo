@@ -1,18 +1,28 @@
 ﻿within eFMI_TestCases.M15_AirSystem.PlantModels;
 model Air_Fuel_Ratio "Air–fuel ratio measurement"
-    extends Modelica.Blocks.Icons.Block;
+  extends .Modelica.Blocks.Icons.Block;
 
-  Modelica.Blocks.Interfaces.RealInput m_dot_f(unit="kg/s", displayUnit="g/s") "Engine port fuel mass flow"
+  .Modelica.Blocks.Interfaces.RealInput m_dot_f(
+    unit = "kg/s",
+    displayUnit = "g/s")
+    "Engine port fuel mass flow"
     annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
-  Modelica.Blocks.Interfaces.RealInput m_dot_ap(unit="kg/s", displayUnit="g/s") "Air mass flow into intake port"
+  .Modelica.Blocks.Interfaces.RealInput m_dot_ap(
+    unit = "kg/s",
+    displayUnit = "g/s")
+    "Air mass flow into intake port"
     annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
-  Modelica.Blocks.Interfaces.RealOutput AFR(unit="1") "Air/fuel ration"
+  .Modelica.Blocks.Interfaces.RealOutput AFR(
+    unit = "1")
+    "Air/fuel ration"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
 equation
- AFR = m_dot_ap/m_dot_f;
+  AFR = m_dot_ap/m_dot_f;
 
-  annotation (Icon(graphics={
+  annotation (
+    Icon(
+      graphics={
         Text(
           extent={{-100,8},{100,78}},
           lineColor={28,108,200},

@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M21_Interpolation2D "Example of a pure test of efmi built-in function interpolation2D(...)"
-    extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
 annotation (Documentation(info="<html>
 <p>

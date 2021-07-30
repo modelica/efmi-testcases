@@ -1,6 +1,6 @@
 ﻿within eFMI_TestCases;
 package M05_ControlledMixingUnit "Example of a controlled mixing reactor where a nonlinear inverse model of the plant is in the feedforward path of the control system."
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
   annotation (
     preferredView = "info",

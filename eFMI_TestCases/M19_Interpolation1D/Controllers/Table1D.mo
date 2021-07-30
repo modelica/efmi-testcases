@@ -1,14 +1,14 @@
 within eFMI_TestCases.M19_Interpolation1D.Controllers;
 block Table1D
-  extends Modelica.Blocks.Interfaces.SISO(u(min = -4.0, max = 4.0));
+  extends .Modelica.Blocks.Interfaces.SISO(u(min = -4.0, max = 4.0));
   extends eFMI_TestCases.Icons.Controller;
 
-  eFMI.Tables.CombiTable1Ds table(
+  .eFMI.Tables.CombiTable1Ds table(
     efmi = true,
     final efmi_nu = 5,
     final table = [{-2, -1, 0, 1, 2}, {-4, -1.5, 0, 1.5, 4}])
     annotation (Placement(transformation(extent = {{-10,-10},{10,10}})));
-  Modelica.Blocks.Nonlinear.Limiter limiter(uMax = 4.5)
+  .Modelica.Blocks.Nonlinear.Limiter limiter(uMax = 4.5)
     annotation (Placement(transformation(extent = {{40,-10},{60,10}})));
 
 equation
