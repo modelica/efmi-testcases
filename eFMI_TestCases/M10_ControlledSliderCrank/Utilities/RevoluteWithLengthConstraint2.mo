@@ -1,49 +1,45 @@
 within eFMI_TestCases.M10_ControlledSliderCrank.Utilities;
 model RevoluteWithLengthConstraint2
   "Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)"
+  extends .Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
-  extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-  Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
-    "1-dim. rotational flange that drives the joint"
-    annotation (Placement(transformation(extent={{10,90},{-10,110}})));
-  Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
-    "1-dim. rotational flange of the drive bearing"
-    annotation (Placement(transformation(extent={{-50,90},{-70,110}})));
+  final parameter Real e[3](
+    each final unit = "1") = .Modelica.Math.Vectors.normalizeWithAssert(n)
+    "Unit vector in direction of rotation axis, resolved in frame_a";
 
-  Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Length", each final unit="m")
-    "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
-    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
-  Modelica.Blocks.Interfaces.RealInput position_b[3](each final quantity="Length", each final unit="m")
-    "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
-    annotation (Placement(transformation(extent={{140,-80},{100,-40}})));
-
-  parameter Boolean animation=true "= true, if animation shall be enabled";
-  parameter Modelica.SIunits.Position lengthConstraint(start=1)
+  parameter Boolean animation = true
+    "= true, if animation shall be enabled";
+  parameter .Modelica.Units.SI.Position lengthConstraint(
+    start = 1)
     "Fixed length of length constraint";
-  parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
+  parameter .Modelica.Mechanics.MultiBody.Types.Axis n = {0,0,1}
     "Axis of rotation resolved in frame_a (= same as in frame_b)"
     annotation (Evaluate=true);
-  parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg phi_offset=0
+  parameter .Modelica.Units.NonSI.Angle_deg phi_offset = 0
     "Relative angle offset (angle = phi + from_deg(phi_offset))";
   //parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg phi_guess=0
   //  "Select the configuration such that at initial time |phi - from_deg(phi_guess)| is minimal";
-  parameter Modelica.SIunits.Distance cylinderLength=world.defaultJointLength
-    "Length of cylinder representing the joint axis" annotation (Dialog(
+  parameter .Modelica.Units.SI.Distance cylinderLength = world.defaultJointLength
+    "Length of cylinder representing the joint axis"
+    annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animation));
-  parameter Modelica.SIunits.Distance cylinderDiameter=world.defaultJointWidth
-    "Diameter of cylinder representing the joint axis" annotation (Dialog(
+  parameter .Modelica.Units.SI.Distance cylinderDiameter = world.defaultJointWidth
+    "Diameter of cylinder representing the joint axis"
+    annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animation));
-  input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
-    "Color of cylinder representing the joint axis" annotation (Dialog(
+
+  input .Modelica.Mechanics.MultiBody.Types.Color cylinderColor = .Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+    "Color of cylinder representing the joint axis"
+    annotation (Dialog(
       colorSelector=true,
       tab="Animation",
       group="if animation = true",
       enable=animation));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient=world.defaultSpecularCoefficient
+  input .Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(
       tab="Animation",
@@ -52,45 +48,69 @@ model RevoluteWithLengthConstraint2
 
   parameter Boolean positiveBranch = true
     "Selection of one of the two solutions of the non-linear constraint equation that is used";
-  final parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(n)
-    "Unit vector in direction of rotation axis, resolved in frame_a";
 
-  Modelica.SIunits.Angle phi "Rotation angle of revolute joint";
-  Modelica.Mechanics.MultiBody.Frames.Orientation R_rel
+  .Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
+    "1-dim. rotational flange that drives the joint"
+    annotation (Placement(transformation(extent={{10,90},{-10,110}})));
+  .Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
+    "1-dim. rotational flange of the drive bearing"
+    annotation (Placement(transformation(extent={{-50,90},{-70,110}})));
+  .Modelica.Blocks.Interfaces.RealInput position_a[3](
+    each final quantity = "Length",
+    each final unit = "m")
+    "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
+    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
+  .Modelica.Blocks.Interfaces.RealInput position_b[3](
+    each final quantity = "Length",
+    each final unit = "m")
+    "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
+    annotation (Placement(transformation(extent={{140,-80},{100,-40}})));
+  .Modelica.Units.SI.Angle phi "Rotation angle of revolute joint";
+  .Modelica.Mechanics.MultiBody.Frames.Orientation R_rel
     "Relative orientation object from frame_a to frame_b";
-  Modelica.SIunits.Angle angle
+  .Modelica.Units.SI.Angle angle
     "= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)";
-  Modelica.SIunits.Torque tau "= axis.tau (driving torque in the axis)";
+  .Modelica.Units.SI.Torque tau
+    "= axis.tau (driving torque in the axis)";
 
 protected
-  Modelica.SIunits.Position r_a[3]=position_a
+  .Modelica.Units.SI.Position r_a[3] = position_a
     "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
-  Modelica.SIunits.Position r_b[3]=position_b
+  .Modelica.Units.SI.Position r_b[3] = position_b
     "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
-  Real e_r_a "Projection of r_a on e";
-  Real e_r_b "Projection of r_b on e";
-  Real A "Coefficient A of equation: A*cos(phi) + B*sin(phi) + C = 0";
-  Real B "Coefficient B of equation: A*cos(phi) + B*sin(phi) + C = 0";
-  Real C "Coefficient C of equation: A*cos(phi) + B*sin(phi) + C = 0";
-  Real k1 "Constant of quadratic equation";
-  Real k2 "Constant of quadratic equation";
+  Real e_r_a
+    "Projection of r_a on e";
+  Real e_r_b
+    "Projection of r_b on e";
+  Real A
+    "Coefficient A of equation: A*cos(phi) + B*sin(phi) + C = 0";
+  Real B
+    "Coefficient B of equation: A*cos(phi) + B*sin(phi) + C = 0";
+  Real C
+    "Coefficient C of equation: A*cos(phi) + B*sin(phi) + C = 0";
+  Real k1
+    "Constant of quadratic equation";
+  Real k2
+    "Constant of quadratic equation";
   Real k1a(start=1);
   Real k1b;
-  Real kcos_angle "= k1*cos(angle)";
-  Real ksin_angle "= k1*sin(angle)";
+  Real kcos_angle
+    "= k1*cos(angle)";
+  Real ksin_angle
+    "= k1*sin(angle)";
 
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
-    shapeType="cylinder",
-    color=cylinderColor,
-    specularCoefficient=specularCoefficient,
-    length=cylinderLength,
-    width=cylinderDiameter,
-    height=cylinderDiameter,
-    lengthDirection=e,
-    widthDirection={0,1,0},
-    r_shape=-e*(cylinderLength/2),
-    r=frame_a.r_0,
-    R=frame_a.R) if world.enableAnimation and animation;
+  .Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
+    shapeType = "cylinder",
+    color = cylinderColor,
+    specularCoefficient = specularCoefficient,
+    length = cylinderLength,
+    width = cylinderDiameter,
+    height = cylinderDiameter,
+    lengthDirection = e,
+    widthDirection = {0,1,0},
+    r_shape = -e*(cylinderLength/2),
+    r = frame_a.r_0,
+    R = frame_a.R) if world.enableAnimation and animation;
 
 equation
   Connections.branch(frame_a.R, frame_b.R);
@@ -98,22 +118,22 @@ equation
   axis.phi = phi;
   bearing.phi = 0;
 
-  angle = Modelica.SIunits.Conversions.from_deg(phi_offset) + phi;
+  angle =.Modelica.Units.Conversions.from_deg(phi_offset) + phi;
 
   // transform kinematic quantities from frame_a to frame_b
   frame_b.r_0 = frame_a.r_0;
 
-  R_rel = Modelica.Mechanics.MultiBody.Frames.planarRotation(
+  R_rel = .Modelica.Mechanics.MultiBody.Frames.planarRotation(
     e,
     angle,
     der(angle));
-  frame_b.R = Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_a.R,
+  frame_b.R = .Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_a.R,
     R_rel);
 
   // Force and torque balance
-  zeros(3) = frame_a.f + Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel,
+  zeros(3) = frame_a.f + .Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel,
     frame_b.f);
-  zeros(3) = frame_a.t + Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel,
+  zeros(3) = frame_a.t + .Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel,
     frame_b.t);
 
   // Compute rotation angle (details, see function "selectBranch")
@@ -139,16 +159,18 @@ the states will be dynamically selected in such a way that in no
 position a degree of freedom is lost.
 ");
 
-  k1b = Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(k1a, 1.0e-12);
+  k1b = .Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(
+    k1a,
+    1.0e-12);
   k2 = sqrt(k1b);
   kcos_angle = -A*C + (if positiveBranch then B else -B)*k2;
   ksin_angle = -B*C + (if positiveBranch then -A else A)*k2;
 
-  angle = Modelica.Math.atan2(ksin_angle, kcos_angle);
+  angle = .Modelica.Math.atan2(ksin_angle, kcos_angle);
+
   annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={
+    Icon(
+      graphics={
         Rectangle(
           extent={{-30,10},{10,-10}},
           lineColor={64,64,64},
@@ -195,9 +217,8 @@ position a degree of freedom is lost.
           lineColor={64,64,64},
           fillPattern=FillPattern.VerticalCylinder,
           fillColor={192,192,192})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={
+    Diagram(
+      graphics={
         Rectangle(
           extent={{-100,-60},{-30,60}},
           lineColor={64,64,64},

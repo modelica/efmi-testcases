@@ -1,45 +1,85 @@
 within eFMI_TestCases.M15_AirSystem.PlantModels;
 model Manifold_Pressure "Intake manifold filling dynamics"
-  extends Modelica.Blocks.Icons.Block;
+  extends .Modelica.Blocks.Icons.Block;
 
-  import Modelica.SIunits.Conversions.from_bar;
-  import Modelica.SIunits.Conversions.from_deg;
-  import Modelica.SIunits.Conversions.to_rpm;
-
-  Modelica.Blocks.Interfaces.RealInput T_i(unit="K", displayUnit="K") "Intake manifold temperature"
-    annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
-  Modelica.Blocks.Interfaces.RealInput v(unit="deg", displayUnit="deg") "Throttle position"
-    annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealInput n(unit="rad/s", displayUnit="rpm") "Crank shaft speed"
-    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
-  Modelica.Blocks.Interfaces.RealOutput p_i(start=from_bar(0.75), fixed=true, unit="Pa", displayUnit="bar", min=0.0, nominal=1e5) "Manifold pressure"
-    annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  Modelica.Blocks.Interfaces.RealOutput m_dot_ap(quantity="MassFlowRate", final unit="kg/s", displayUnit="g/s") "Air mass flow into intake port"
-    annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
-  Modelica.Blocks.Interfaces.RealOutput m_dot_at(quantity="MassFlowRate", final unit="kg/s", displayUnit="g/s") "Air mass flow past throttle plate"
-    annotation (Placement(transformation(extent={{100,50},{120,70}})));
-
-  parameter Modelica.SIunits.Temp_K T_a = 298 "Ambient temperature";
-  parameter Modelica.SIunits.Volume V_i = 0.001 "Intake manifold volume";
-  parameter Modelica.SIunits.MassFlowRate m_dot_EGR = 0 "EGR mass flow";
-  parameter Modelica.SIunits.Temp_K T_EGR = 298 "EGR temperature";
-  parameter Modelica.SIunits.Volume V_d = 0.001 "Engine displacement volume";
-  parameter Modelica.SIunits.Efficiency eta_i = 0.8276 "Volumetric efficiency";
-  parameter Real p_c(unit="1") = 0.5 "Critical Pressure ratio";
-  parameter Modelica.SIunits.MassFlowRate m_dot_at0 = 0.001 "fitting constant, m_dot_at(p_a,T_a,v0)";
-  parameter Modelica.SIunits.MassFlowRate m_dot_at1 = 10e-6 "fitting constant, slope of m_dot_at(beta2)";
-  parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg v0 = 2 "Constant";
+  import  Modelica.Units.Conversions.from_bar;
+  import  Modelica.Units.Conversions.from_deg;
+  import  Modelica.Units.Conversions.to_rpm;
 
   /* changed 12.12.2019 by O. Lenord, due to unit mismatch for eq. der(p_i)=...
   constant Real R(unit="J/(mol.K)") = 287e-5 "Specific gas constant for air (muliplied with 1e-5)";
   */
-  constant Modelica.SIunits.SpecificHeatCapacity R = 287.058 "Specific gas constant for dry air in SI units";
-  constant Real kappa(unit = "1") = 1.4 "Ratio of specific heats for air";
-  constant Modelica.SIunits.AbsolutePressure p_a(displayUnit="bar") = from_bar(1.01325) "Ambient pressure";
+  constant .Modelica.Units.SI.SpecificHeatCapacity R = 287.058
+    "Specific gas constant for dry air in SI units";
+  constant Real kappa(
+    unit = "1") = 1.4
+    "Ratio of specific heats for air";
+  constant .Modelica.Units.SI.AbsolutePressure p_a(
+    displayUnit = "bar") = from_bar(1.01325)
+    "Ambient pressure";
 
-  Real p_r(unit="1") "Ratio of manifold pressure over air pressure";
-  Real beta_1(unit="1");
-  Real beta_2(unit="1");
+  parameter .Modelica.Units.SI.Temperature T_a = 298
+    "Ambient temperature";
+  parameter .Modelica.Units.SI.Volume V_i = 0.001
+    "Intake manifold volume";
+  parameter .Modelica.Units.SI.MassFlowRate m_dot_EGR = 0
+    "EGR mass flow";
+  parameter .Modelica.Units.SI.Temperature T_EGR = 298
+    "EGR temperature";
+  parameter .Modelica.Units.SI.Volume V_d = 0.001
+    "Engine displacement volume";
+  parameter .Modelica.Units.SI.Efficiency eta_i = 0.8276
+    "Volumetric efficiency";
+  parameter Real p_c(unit="1") = 0.5
+    "Critical Pressure ratio";
+  parameter .Modelica.Units.SI.MassFlowRate m_dot_at0 = 0.001
+    "fitting constant, m_dot_at(p_a,T_a,v0)";
+  parameter .Modelica.Units.SI.MassFlowRate m_dot_at1 = 10e-6
+    "fitting constant, slope of m_dot_at(beta2)";
+  parameter .Modelica.Units.NonSI.Angle_deg v0 = 2
+    "Constant";
+
+  .Modelica.Blocks.Interfaces.RealInput T_i(
+    unit = "K",
+    displayUnit = "K")
+    "Intake manifold temperature"
+    annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+  .Modelica.Blocks.Interfaces.RealInput v(
+    unit = "deg",
+    displayUnit = "deg")
+    "Throttle position"
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+  .Modelica.Blocks.Interfaces.RealInput n(
+    unit = "rad/s",
+    displayUnit = "rpm")
+    "Crank shaft speed"
+    annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
+  .Modelica.Blocks.Interfaces.RealOutput p_i(
+    start = from_bar(0.75),
+    fixed = true,
+    unit = "Pa",
+    displayUnit = "bar",
+    min = 0.0,
+    nominal = 1e5)
+    "Manifold pressure"
+    annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+  .Modelica.Blocks.Interfaces.RealOutput m_dot_ap(
+    quantity = "MassFlowRate",
+    final unit = "kg/s",
+    displayUnit = "g/s")
+    "Air mass flow into intake port"
+    annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+  .Modelica.Blocks.Interfaces.RealOutput m_dot_at(
+    quantity = "MassFlowRate",
+    final unit = "kg/s",
+    displayUnit = "g/s")
+    "Air mass flow past throttle plate"
+    annotation (Placement(transformation(extent={{100,50},{120,70}})));
+
+  Real p_r(unit = "1")
+    "Ratio of manifold pressure over air pressure";
+  Real beta_1(unit = "1");
+  Real beta_2(unit = "1");
   Real tmp;
 
 initial equation
@@ -57,13 +97,20 @@ equation
   beta_1 = 1 - cos(from_deg(v - v0));
 
   tmp = (1-((p_r-p_c)/(1-p_c))^2);
-  beta_2 = smooth(1,noEvent(if (p_r > p_c) then Modelica.Fluid.Utilities.regRoot(tmp) else 1));
+  beta_2 = smooth(
+    1,
+    noEvent(
+      if (p_r > p_c) then .Modelica.Fluid.Utilities.regRoot(tmp)
+      else 1));
 //  beta_2 = smooth(1,noEvent(if (p_r > p_c) then sqrt(tmp) else 1));
-//  beta_2 = smooth(1,noEvent(if (p_r > p_c) then Modelica.Fluid.Utilities.regRoot(1-((p_r-p_c)/(1-p_c))^2) else 1));
+//  beta_2 = smooth(1,noEvent(if (p_r > p_c) then .Modelica.Fluid.Utilities.regRoot(1-((p_r-p_c)/(1-p_c))^2) else 1));
 
   m_dot_at = m_dot_at1*p_a/sqrt(T_a)*beta_1*beta_2 + m_dot_at0;
   der(p_i) = kappa*R/V_i * (-m_dot_ap*T_i + m_dot_at*T_a + m_dot_EGR*T_EGR);
-  annotation (Icon(graphics={
+
+  annotation (
+    Icon(
+      graphics={
         Polygon(
           points={{38,16},{-10,70},{-24,72},{-46,64},{-56,58},{-64,52},{-72,40},
               {-80,24},{-80,18},{-26,-48},{38,16}},

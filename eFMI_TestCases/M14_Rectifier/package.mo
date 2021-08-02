@@ -1,7 +1,6 @@
 within eFMI_TestCases;
 package M14_Rectifier "Examples for ideal rectifier implementations"
-  extends Modelica.Icons.ExamplesPackage;
-
+  extends .Modelica.Icons.ExamplesPackage;
 
   annotation (preferredView="info", Documentation(info="<html>
 <p>This is test case of a simple rectifier model used within a generator circuit charging a battery. The rectifier implementation reflects an ideal switching behavior of the connections between the left and right pins depending on the current flow direction. </p>

@@ -4,14 +4,18 @@ model IdealRectifier
 
   parameter Real threshold = 1;
 
-  Modelica.Electrical.Analog.Interfaces.PositivePin p1 "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}},   rotation = 0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n1 "Negative pin of the left port"
-    annotation (Placement(transformation(extent={{90,-10},{110,10}},       rotation = 0)));
-  Modelica.Electrical.Analog.Interfaces.PositivePin p2 "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
-    annotation (Placement(transformation(extent={{-10,90},{10,110}},   rotation = 0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n2 "Negative pin of the right port"
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}},   rotation = 0)));
+  .Modelica.Electrical.Analog.Interfaces.PositivePin p1
+    "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
+    annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+  .Modelica.Electrical.Analog.Interfaces.NegativePin n1
+    "Negative pin of the left port"
+    annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+  .Modelica.Electrical.Analog.Interfaces.PositivePin p2
+    "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
+    annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+  .Modelica.Electrical.Analog.Interfaces.NegativePin n2
+    "Negative pin of the right port"
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
 
   Boolean i1_rising "edge detection";
 

@@ -1,9 +1,9 @@
 within eFMI_TestCases.S003_VehicleModel.Controllers;
 partial model VehicleEquations
   "Single track model with roll augmentation (Odenthal)"
-  extends Modelica.Blocks.Icons.Block;
+  extends .Modelica.Blocks.Icons.Block;
 
-  import SI = Modelica.SIunits;
+  import Modelica.Units.SI;
 
   // Driven wheels:
   parameter SI.Force FdF = 0.3*50
@@ -21,7 +21,7 @@ partial model VehicleEquations
   parameter SI.Length lR = 1.54
     "Distance rear axle to CG1";
   parameter SI.Acceleration g = 9.81
-    "Acceleration due to gravity (= Modelica.Constants.g_n)";
+    "Acceleration due to gravity (= .Modelica.Constants.g_n)";
   parameter SI.Inertia Jx2 = 24201
     "Roll moment of inertia, sprung mass m2";
 
@@ -33,11 +33,14 @@ partial model VehicleEquations
     wet road: mu = 0.5
     ice     : mu = 0.15
   */
-  parameter Real mu(unit="1") = 1
+  parameter Real mu(
+    unit = "1") = 1
     "Nominal road adhesion coefficient";
-  parameter Real cF(unit="N/rad") = 582e3
+  parameter Real cF(
+    unit = "N/rad") = 582e3
     "Nominal front cornering stiffness (at nominal load and mu=1)";
-  parameter Real cR(unit="N/rad") = 783e3
+  parameter Real cR(
+    unit = "N/rad") = 783e3
     "Nominal rear cornering stiffness (at nominal load and mu=1)";
 
   parameter SI.Inertia Jz1 = 3654
@@ -63,13 +66,13 @@ partial model VehicleEquations
   parameter SI.Force FdR = 0
     "Drive force of rear tire";
 
-// Inputs, to set somehow:
+  // Inputs, to set somehow:
   SI.Angle delta
     "Front wheel steering angle";
   SI.Force FyD
     "Disturbance side force";
 
-// Vehicle variables:
+  // Vehicle variables:
   SI.Angle betaF
     "Front chassis sideslip angle, equ. (6.3.13)";
   SI.Angle betaR
@@ -101,11 +104,11 @@ partial model VehicleEquations
   SI.Torque Fphidot
     "Torque term due to suspension damping";
 
-// States:
+  // States:
   Real sx, sy, psi, phi;  // z = {position x, position y, yaw angle, roll angle} w.r.t vehicle frame
   Real vx, vy, r, phidot; // der(z) = {velo x, velo y, yaw rate, roll rate} w.r.t vehicle frame
 
-// Intermediate variables:
+  // Intermediate variables:
   Real M[4,4]
     "Generalized mass matrix";
   Real k[4]
@@ -126,8 +129,8 @@ equation
   alphaF = delta - betaF;
   alphaR = deltaR - betaR;
 
-  beta = Modelica.Math.atan2(vy, vx);
-  v = Modelica.Math.Vectors.length({vx,vy});
+  beta = .Modelica.Math.atan2(vy, vx);
+  v = .Modelica.Math.Vectors.length({vx,vy});
 
   FlV = FdF; // min(FdF, sqrt(mu*FzF - FsV));
   FsV = mu*cF*alphaF;

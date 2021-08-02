@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M06_SkyhookGroundhook "Example of a skyhook groundhook control of a semi-active damper"
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
 annotation (preferredView="info", Documentation(info="<html>
 <p>

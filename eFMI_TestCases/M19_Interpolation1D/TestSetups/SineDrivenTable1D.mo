@@ -1,23 +1,23 @@
 within eFMI_TestCases.M19_Interpolation1D.TestSetups;
 model SineDrivenTable1D
-  extends Modelica.Icons.Example;
+  extends .Modelica.Icons.Example;
 
   // WARNING: Do NOT modify the controller HERE:
   replaceable Controllers.Table1D controller
     annotation (Placement(transformation(extent = {{-10,-10},{10,10}})));
 
-  Modelica.Blocks.Sources.Sine sine(
+  .Modelica.Blocks.Sources.Sine sine(
     amplitude = 3,
-    freqHz = 2)
-    annotation (Placement(transformation(extent = {{-80,-10},{-60,10}})));
+    f = 2)
+    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock(
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock(
     period = 0.01)
-    annotation (Placement(transformation(extent = {{-78,42},{-62,58}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked sample
-    annotation (Placement(transformation(extent = {{-36,6},{-24,-6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold
-    annotation (Placement(transformation(extent = {{24,-6},{36,6}})));
+    annotation (Placement(transformation(extent={{-78,42},{-62,58}})));
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked sample
+    annotation (Placement(transformation(extent={{-36,6},{-24,-6}})));
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold
+    annotation (Placement(transformation(extent={{24,-6},{36,6}})));
 
 equation
   connect(sample.y, controller.u)

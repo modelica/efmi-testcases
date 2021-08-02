@@ -2,43 +2,43 @@ within eFMI_TestCases.M09_MixingUnit_FBL.Controllers;
 model Controller
   extends Controller_interface;
 
-  parameter Modelica.SIunits.Frequency freq = 1/300
+  parameter .Modelica.Units.SI.Frequency freq=1/300
     "Critical frequency of filter";
 
-  final parameter Real K0 = (2*Modelica.Constants.pi*freq)^2;
-  final parameter Real K1 = 2*(2*Modelica.Constants.pi*freq);
+  final parameter Real K0 = (2 * .Modelica.Constants.pi * freq)^2;
+  final parameter Real K1 = 2 * (2 * .Modelica.Constants.pi * freq);
 
   M05_ControlledMixingUnit.PlantModels.MixingUnit invMixingUnit(
-    for_inversion=true,
-    deactivateStateSelect=true,
-    pro=1.1) annotation (Placement(transformation(extent={{30,-64},{10,-44}},
-          rotation=0)));
-  Modelica.Blocks.Math.InverseBlockConstraints inverseBlockConstraints
+    for_inversion = true,
+    deactivateStateSelect = true,
+    pro = 1.1)
+    annotation (Placement(transformation(extent={{30,-64},{10,-44}})));
+  .Modelica.Blocks.Math.InverseBlockConstraints inverseBlockConstraints
     annotation (Placement(transformation(extent={{-12,-74},{52,-34}})));
-  Modelica.Blocks.Continuous.CriticalDamping filter(
+  .Modelica.Blocks.Continuous.CriticalDamping filter(
     f = freq,
-    initType=Modelica.Blocks.Types.Init.InitialState,
+    initType=.Modelica.Blocks.Types.Init.InitialState,
     n = 1,
     normalized = false,
-    x_start={invMixingUnit.c_start})
+    x_start = {invMixingUnit.c_start})
     annotation (Placement(transformation(
       extent = {{-68,52},{-52,68}},
       rotation = 0)));
-  Modelica.Blocks.Math.Feedback feedback1
+  .Modelica.Blocks.Math.Feedback feedback1
     annotation (Placement(transformation(
       extent = {{-40,50},{-20,70}},
       rotation = 0)));
-  Modelica.Blocks.Continuous.Integrator integrator1(
-    initType = Modelica.Blocks.Types.Init.NoInit)
+  .Modelica.Blocks.Continuous.Integrator integrator1(
+    initType = .Modelica.Blocks.Types.Init.NoInit)
     annotation (Placement(transformation(extent = {{36,52},{51.5,68}})));
-  Modelica.Blocks.Continuous.Integrator integrator2(
-    initType = Modelica.Blocks.Types.Init.NoInit)
+  .Modelica.Blocks.Continuous.Integrator integrator2(
+    initType = .Modelica.Blocks.Types.Init.NoInit)
     annotation (Placement(transformation(extent = {{68,52},{84,68}})));
-  Modelica.Blocks.Math.Gain gain1(k = K0)
+  .Modelica.Blocks.Math.Gain gain1(k = K0)
     annotation (Placement(transformation(extent = {{-12,52},{4,68}})));
-  Modelica.Blocks.Math.Gain gain2(k = K1)
+  .Modelica.Blocks.Math.Gain gain2(k = K1)
     annotation (Placement(transformation(extent = {{48,12},{32,28}})));
-  Modelica.Blocks.Math.Feedback feedback2
+  .Modelica.Blocks.Math.Feedback feedback2
     annotation (Placement(transformation(
       extent = {{10,50},{30,70}},
       rotation = 0)));

@@ -4,7 +4,7 @@ model DriveTrain_ExplEuler
     final is_clocked = true,
     final clock(
       factor = 250,
-      resolution = Modelica_Synchronous.Types.Resolution.us,
+      resolution = .Modelica.Clocked.Types.Resolution.us,
       solverMethod = "ExplicitEuler"));
 
    annotation (

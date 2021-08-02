@@ -1,7 +1,7 @@
 within eFMI_TestCases.M04_DrivetrainTorqueControl.TestSetups;
 partial model BaseSetup
   extends .eFMI_TestCases.Utilities.ClockedContinuousTwin;
-  extends Modelica.Icons.Example;
+  extends .Modelica.Icons.Example;
 
   replaceable Controllers.Controller controller constrainedby
     Controllers.ControllerInterface
@@ -11,21 +11,21 @@ partial model BaseSetup
     annotation (Placement(transformation(extent = {{-80,-10},{-60,10}})));
 
   // Clocked configuration:
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock(
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock(
     useSolver = false,
     period = -1.0,
     solverMethod = "") if is_clocked
     "Must still be configured when 'is_clocked = true'."
-    annotation (Placement(transformation(extent = {{-78,42},{-62,58}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked M_desired if is_clocked
-    annotation (Placement(transformation(extent = {{-36,6},{-24,-6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold M_motor if is_clocked
-    annotation (Placement(transformation(extent = {{26,-6},{38,6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample wRel if is_clocked
-    annotation (Placement(transformation(
-      extent = {{-6,6},{6,-6}},
-      rotation = 180,
-      origin = {30,-30})));
+    annotation (Placement(transformation(extent={{-78,42},{-62,58}})));
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked M_desired if is_clocked
+    annotation (Placement(transformation(extent={{-36,6},{-24,-6}})));
+  .Modelica.Clocked.RealSignals.Sampler.Hold M_motor if is_clocked
+    annotation (Placement(transformation(extent={{26,-6},{38,6}})));
+  .Modelica.Clocked.RealSignals.Sampler.Sample wRel if is_clocked annotation (
+      Placement(transformation(
+        extent={{-6,6},{6,-6}},
+        rotation=180,
+        origin={30,-30})));
 
 equation
   if is_clocked then

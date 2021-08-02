@@ -1,6 +1,6 @@
 within eFMI_TestCases.M21_Interpolation2D.Utilities;
 model CombiTable2D "CombiTable2D alternative enabling eFMI Algorithm Code generation"
-  extends Modelica.Blocks.Interfaces.SI2SO;
+  extends .Modelica.Blocks.Interfaces.SI2SO;
 
   parameter Boolean efmi = false
     "= true, selects the interpolation builtin functions of eFMI Algorithm Code,
@@ -16,17 +16,20 @@ model CombiTable2D "CombiTable2D alternative enabling eFMI Algorithm Code genera
   //parameter Integer efmi_nu2 = size(efmi_u2_data,1);
 
 protected
-  final Modelica.Blocks.Tables.CombiTable2D combiTable2D(
+  final .Modelica.Blocks.Tables.CombiTable2Ds combiTable2D(
     final tableOnFile = false,
-    final table = [0.0, transpose([efmi_u2_data]);
-                   efmi_u1_data, efmi_y_data],
+    final table = [0.0, transpose([efmi_u2_data]); efmi_u1_data,efmi_y_data],
     final tableName = "",
     final fileName = "",
     final verboseRead = false,
-    final smoothness = if efmi_interpolation==2 then Modelica.Blocks.Types.Smoothness.LinearSegments else Modelica.Blocks.Types.Smoothness.ConstantSegments,
-    final extrapolation = if efmi_extrapolation==2 then Modelica.Blocks.Types.Extrapolation.LastTwoPoints else Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+    final smoothness = if efmi_interpolation == 2
+      then .Modelica.Blocks.Types.Smoothness.LinearSegments
+      else .Modelica.Blocks.Types.Smoothness.ConstantSegments,
+    final extrapolation = if efmi_extrapolation == 2
+      then .Modelica.Blocks.Types.Extrapolation.LastTwoPoints
+      else .Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
     final verboseExtrapolation = false) if not efmi
-    annotation (Placement(transformation(extent = {{-10,-10},{10,10}})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
 equation
   if efmi then
@@ -40,7 +43,6 @@ equation
       efmi_y_data,
       efmi_interpolation,
       efmi_extrapolation);
-
   else
     connect(u1, combiTable2D.u1)
       annotation (Line(

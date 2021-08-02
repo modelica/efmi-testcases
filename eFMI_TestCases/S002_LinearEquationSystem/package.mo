@@ -1,7 +1,6 @@
 within eFMI_TestCases;
 package S002_LinearEquationSystem "Example to test solving a linear system of equations (used in the eFMI specification)"
-  extends Modelica.Icons.ExamplesPackage;
-
+  extends .Modelica.Icons.ExamplesPackage;
 
 annotation(Documentation(info="<html>
 <p>

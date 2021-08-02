@@ -1,7 +1,6 @@
 within eFMI_TestCases;
 package M07_CrabEstimation "Examples of an extended Kalman filter for a crab"
-   extends Modelica.Icons.ExamplesPackage;
-
+   extends .Modelica.Icons.ExamplesPackage;
 
  annotation (preferredView="info", Documentation(info="<html>
 <p>

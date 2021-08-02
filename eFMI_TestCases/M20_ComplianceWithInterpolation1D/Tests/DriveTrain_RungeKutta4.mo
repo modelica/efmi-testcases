@@ -4,7 +4,7 @@ model DriveTrain_RungeKutta4
     final is_clocked = true,
     final clock(
       factor = 2,
-      resolution = Modelica_Synchronous.Types.Resolution.ms,
+      resolution = .Modelica.Clocked.Types.Resolution.ms,
       solverMethod = "ExplicitRungeKutta4"));
 
     annotation (

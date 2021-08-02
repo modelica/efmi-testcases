@@ -2,11 +2,11 @@ within eFMI_TestCases.M05_ControlledMixingUnit.TestSetups;
 model OpenLoop
   extends BaseSetup;
 
-  Modelica.Blocks.Sources.Sine sine(
+  .Modelica.Blocks.Sources.Sine sine(
     amplitude = 15,
-    freqHz = 0.001,
+    f = 0.001,
     offset = 311)
-    annotation (Placement(transformation(extent = {{80,-40},{60,-20}})));
+    annotation (Placement(transformation(extent={{80,-40},{60,-20}})));
 
 equation
   if is_clocked then

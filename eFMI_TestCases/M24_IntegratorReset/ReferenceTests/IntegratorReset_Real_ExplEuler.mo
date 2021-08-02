@@ -7,5 +7,4 @@ annotation (experiment(StopTime=8, Interval = 0.01),
                              MapName(from="integratorWithReset.reset",to="reset"),
                              MapName(from="integratorWithReset.y",to="y",isOutput=true)},
      __fmi_OriginalModel_ExportReference="eFMI_TestCases.M24_IntegratorReset.Tests.IntegratorReset_Real_ExplEuler");
-
 end IntegratorReset_Real_ExplEuler;

@@ -2,7 +2,8 @@ within eFMI_TestCases.M04_DrivetrainTorqueControl.Controllers;
 model SimpleNoFeedbackOnlyGainController
   extends Controllers.ControllerInterface;
 
-  Modelica.Blocks.Math.Gain gain(k = 1/gearRatio)
+  .Modelica.Blocks.Math.Gain gain(
+    k = 1/gearRatio)
     annotation (Placement(transformation(extent = {{-8,-10},{12,10}})));
 
 equation

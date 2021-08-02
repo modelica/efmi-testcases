@@ -2,9 +2,9 @@ within eFMI_TestCases.M10_ControlledSliderCrank.TestSetups;
 partial model OpenLoop
   extends BaseSetup;
 
-  Modelica.Blocks.Sources.Sine sine1(
+  .Modelica.Blocks.Sources.Sine sine1(
     amplitude = 0.75,
-    freqHz = 0.39,
+    f = 0.39,
     phase = 0,
     offset = 0.3)
     annotation (Placement(transformation(extent={{80,-50},{60,-30}})));

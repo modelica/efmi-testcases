@@ -2,8 +2,14 @@ within eFMI_TestCases.M04_DrivetrainTorqueControl.TestSetups;
 model ClosedLoop
   extends BaseSetup;
 
-  PlantModels.PlantForSimulation plant(driveline(inertiaDrivelineIn(phi(fixed=
-              true), w(fixed=true, start=10)), Gear(w_rel(fixed=true))))
+  PlantModels.PlantForSimulation plant(
+    driveline(
+      inertiaDrivelineIn(
+        phi(fixed = true),
+        w(fixed = true,
+          start = 10)),
+        Gear(
+          w_rel(fixed = true))))
     annotation (Placement(transformation(extent = {{50,-10},{70,10}})));
 
 equation

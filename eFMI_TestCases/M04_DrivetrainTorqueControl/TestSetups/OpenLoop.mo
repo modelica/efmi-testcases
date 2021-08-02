@@ -2,12 +2,12 @@ within eFMI_TestCases.M04_DrivetrainTorqueControl.TestSetups;
 model OpenLoop
   extends BaseSetup;
 
-  Modelica.Blocks.Sources.Sine sine(
+  .Modelica.Blocks.Sources.Sine sine(
     amplitude = 0.4,
-    freqHz = 3,
+    f = 3,
     phase = 2.7925268031909,
     offset = 0.05)
-    annotation (Placement(transformation(extent = {{80,-40},{60,-20}})));
+    annotation (Placement(transformation(extent={{80,-40},{60,-20}})));
 
 equation
   if is_clocked then

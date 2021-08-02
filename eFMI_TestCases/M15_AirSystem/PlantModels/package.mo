@@ -1,6 +1,6 @@
 within eFMI_TestCases.M15_AirSystem;
 package PlantModels "Package for engine subsystems"
-  extends Modelica.Icons.Package;
+  extends .Modelica.Icons.Package;
 
 annotation (Icon(graphics={
       Polygon(

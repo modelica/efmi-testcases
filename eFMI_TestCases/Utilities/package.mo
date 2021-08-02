@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package Utilities "Utility functions"
-  extends Modelica.Icons.UtilitiesPackage;
+  extends .Modelica.Icons.UtilitiesPackage;
 
 annotation(Documentation(info="<html>
 <p>

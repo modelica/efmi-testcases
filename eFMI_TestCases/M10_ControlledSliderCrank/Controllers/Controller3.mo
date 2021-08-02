@@ -2,7 +2,7 @@ within eFMI_TestCases.M10_ControlledSliderCrank.Controllers;
 model Controller3
   extends Controller_interface;
 
-  parameter Modelica.SIunits.Position s_start=0.6;
+  parameter .Modelica.Units.SI.Position s_start = 0.6;
 
   Modelica.Blocks.Math.Gain gain(k = 10)
     annotation (Placement(transformation(
@@ -12,10 +12,12 @@ model Controller3
     annotation (Placement(transformation(
       extent = {{-10,-30},{10,-10}},
       rotation = 0)));
-  PlantModels.SliderCrank3 sliderCrank(world(
-      enableAnimation=false,
-      animateWorld=false,
-      animateGravity=false), s_start=s_start)
+  PlantModels.SliderCrank3 sliderCrank(
+    world(
+      enableAnimation = false,
+      animateWorld = false,
+      animateGravity = false),
+    s_start = s_start)
     annotation (Placement(transformation(extent={{26,6},{-2,34}})));
   Modelica.Blocks.Math.InverseBlockConstraints inverseBlockConstraints
     annotation (Placement(transformation(extent = {{-28,0},{48,40}})));

@@ -1,6 +1,6 @@
 within eFMI;
 package BuiltinFunctions "Modelica-based implementations of the builtin functions of eFMI GALEC"
-  extends Modelica.Icons.Package;
+  extends .Modelica.Icons.Package;
 
   extends .eFMI.Icons.Function
     annotation(IconMap(extent = {{-60,-60},{60,60}}));

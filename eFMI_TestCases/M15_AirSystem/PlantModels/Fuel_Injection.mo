@@ -1,33 +1,58 @@
 within eFMI_TestCases.M15_AirSystem.PlantModels;
 model Fuel_Injection "Fuel injection dynamics"
-    extends Modelica.Blocks.Icons.Block;
-    import Modelica.SIunits.Conversions.to_rpm;
-    import Modelica.SIunits.Conversions.to_bar;
-  Modelica.Blocks.Interfaces.RealInput m_dot_f_i(unit="kg/s",displayUnit="g/s") "Injected fuel mass flow"
+  extends .Modelica.Blocks.Icons.Block;
+
+  import  Modelica.Units.Conversions.to_rpm;
+  import  Modelica.Units.Conversions.to_bar;
+
+  .Modelica.Blocks.Interfaces.RealInput m_dot_f_i(
+    unit = "kg/s",
+    displayUnit = "g/s")
+    "Injected fuel mass flow"
     annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
-  Modelica.Blocks.Interfaces.RealInput p_i(unit="Pa",displayUnit="bar") "Manifold Pressure"
+  .Modelica.Blocks.Interfaces.RealInput p_i(
+    unit = "Pa",
+    displayUnit = "bar")
+    "Manifold Pressure"
     annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
-  Modelica.Blocks.Interfaces.RealInput n(unit="rad/s",displayUnit="rpm") "Crank shaft speed"
+  .Modelica.Blocks.Interfaces.RealInput n(
+    unit = "rad/s",
+    displayUnit = "rpm")
+    "Crank shaft speed"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealOutput m_dot_f(unit="kg/s", displayUnit="g/s") "Engine port fuel mass flow"
+  .Modelica.Blocks.Interfaces.RealOutput m_dot_f(
+    unit = "kg/s",
+    displayUnit = "g/s")
+    "Engine port fuel mass flow"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
-Real X_f(unit="1",min=0, max=1) "Proportion of the fuel film";
-Real tau_f(unit="s",min=0) "Fuel evaporation";
-Modelica.SIunits.MassFlowRate m_dot_fv "Fuel vapour mass flow";
-Modelica.SIunits.MassFlowRate m_dot_ff(start=0, fixed=true) "Fuel film mass flow";
-
-initial equation
+  Real X_f(
+    unit = "1",
+    min = 0,
+    max = 1)
+    "Proportion of the fuel film";
+  Real tau_f(
+    unit = "s",
+    min = 0)
+    "Fuel evaporation";
+  .Modelica.Units.SI.MassFlowRate m_dot_fv
+    "Fuel vapour mass flow";
+  .Modelica.Units.SI.MassFlowRate m_dot_ff(
+    start = 0,
+    fixed = true)
+    "Fuel film mass flow";
 
 equation
-//change 2020-06-24: consider that n is expected in krpm
+  //change 2020-06-24: consider that n is expected in krpm
   X_f = -0.277*to_bar(p_i) - 0.055e-3*to_rpm(n)/9.54 + 0.68;
   tau_f = 1.35*(-0.672e-3*to_rpm(n) + 1.68)*(to_bar(p_i) - 0.825)^2 + (-0.06e-3*to_rpm(n) + 0.15) + 0.56;
   der(m_dot_ff) = 1/tau_f*(-m_dot_ff + X_f*m_dot_f_i);
   m_dot_fv = (1 - X_f)*m_dot_f_i;
   m_dot_f = m_dot_fv + m_dot_ff;
 
-  annotation (Icon(graphics={
+  annotation (
+    Icon(
+      graphics={
         Polygon(
           points={{4,46},{12,58},{16,60},{20,60},{20,64},{22,68},{24,72},{26,76},
               {30,76},{36,74},{42,70},{44,68},{42,62},{40,58},{36,52},{40,48},{

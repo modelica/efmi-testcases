@@ -1,37 +1,54 @@
 within eFMI_TestCases.M15_AirSystem.PlantModels;
 model Manifold_Temperature "Manifold temperature dynamics"
-    extends Modelica.Blocks.Icons.Block;
+  extends .Modelica.Blocks.Icons.Block;
 
-  Modelica.Blocks.Interfaces.RealInput p_i(unit="Pa", displayUnit="bar") "Manifold pressure"
+  constant .Modelica.Units.SI.SpecificHeatCapacity R = 287.058
+    "Specific gas constant for air";
+  constant Real kappa(unit = "1") = 1.4
+    "Ratio of specific heats for air";
+
+  parameter .Modelica.Units.SI.Volume V_i = 0.001
+    "Intake manifold volume";
+  parameter .Modelica.Units.SI.MassFlowRate m_dot_EGR(
+    displayUnit = "g/s") = 0
+    "EGR mass flow";
+  parameter .Modelica.Units.SI.Temperature T_EGR = 298
+    "EGR temperature";
+  parameter .Modelica.Units.SI.Temperature T_a = 298
+    "Ambient temperature";
+
+  .Modelica.Blocks.Interfaces.RealInput p_i(
+    unit = "Pa",
+    displayUnit = "bar")
+    "Manifold pressure"
     annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
-  Modelica.Blocks.Interfaces.RealInput m_dot_ap(unit="kg/s", displayUnit="g/s") "Air mass flow into intake port"
+  .Modelica.Blocks.Interfaces.RealInput m_dot_ap(
+    unit = "kg/s",
+    displayUnit = "g/s")
+    "Air mass flow into intake port"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealInput m_dot_at(unit="kg/s", displayUnit="g/s") "Air mass flow past throttle plate"
+  .Modelica.Blocks.Interfaces.RealInput m_dot_at(
+    unit = "kg/s",
+    displayUnit = "g/s")
+    "Air mass flow past throttle plate"
     annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
-  Modelica.Blocks.Interfaces.RealOutput T_i(
-    final quantity="ThermodynamicTemperature",
-    final unit="K",
+  .Modelica.Blocks.Interfaces.RealOutput T_i(
+    final quantity = "ThermodynamicTemperature",
+    final unit = "K",
     min = 0.0,
     start = 313,
-    fixed=true,
+    fixed = true,
     nominal = 300,
-    displayUnit="degC")
+    displayUnit = "degC")
     "Intake manifold temperature"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
-  parameter Modelica.SIunits.Volume V_i = 0.001 "Intake manifold volume";
-  parameter Modelica.SIunits.MassFlowRate m_dot_EGR(displayUnit="g/s") = 0 "EGR mass flow";
-  parameter Modelica.SIunits.Temp_K T_EGR = 298 "EGR temperature";
-  parameter Modelica.SIunits.Temp_K T_a = 298 "Ambient temperature";
-
-  constant Modelica.SIunits.SpecificHeatCapacity R = 287.058 "Specific gas constant for air";
-  constant Real kappa(unit = "1") = 1.4 "Ratio of specific heats for air";
-
-initial equation
-
 equation
-
-  der(T_i) = T_i*R/(p_i* V_i) * (-m_dot_ap*(kappa-1)* T_i + m_dot_at *(kappa*T_a - T_i) + m_dot_EGR*(kappa*T_EGR - T_i));
+  der(T_i) = T_i*R/(p_i* V_i)
+    * (
+      -m_dot_ap*(kappa-1)* T_i
+      + m_dot_at*(kappa*T_a - T_i)
+      + m_dot_EGR*(kappa*T_EGR - T_i));
 
  annotation (
     Icon(

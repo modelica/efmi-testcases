@@ -1,17 +1,12 @@
 ﻿within eFMI_TestCases;
 package M04_DrivetrainTorqueControl "Example to reduce the vibrations in an electric drivetrain by using a
    torque controller with an inverse model of the drivetrain."
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
-  import SI = Modelica.SIunits;
-  import ConvertSI = Modelica.SIunits.Conversions;
-  import Modelica.Constants.pi;
-  import Modelica.Constants.e;
-
-
-
-
-
+  import  Modelica.Units.SI;
+  import ConvertSI =  Modelica.Units.Conversions;
+  import  Modelica.Constants.pi;
+  import  Modelica.Constants.e;
 
   annotation (preferredView="info", Documentation(info="<html>
 <p>

@@ -1,7 +1,8 @@
 within eFMI_TestCases.M04_DrivetrainTorqueControl.Utilities;
 block LimPI_withFeedForward
   "P, PI, PD, and PID controller with limited output, anti-windup compensation, setpoint weighting and feed forward"
-  import Modelica.Blocks.Types.InitPID;
+  import InitPID =
+         Modelica.Blocks.Types.Init;
   import Modelica.Blocks.Types.Init;
   import Modelica.Blocks.Types.SimpleController;
   extends Modelica.Blocks.Interfaces.SVcontrol;
@@ -25,10 +26,9 @@ block LimPI_withFeedForward
   "Ni*Ti is time constant of anti-windup compensation"
      annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
                               controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-  parameter .Modelica.Blocks.Types.InitPID initType= .Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
-  "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
-                                     annotation(Evaluate=true,
-      Dialog(group="Initialization"));
+  parameter .Modelica.Blocks.Types.Init initType=.Modelica.Blocks.Types.Init.InitialState
+    "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+    annotation (Evaluate=true, Dialog(group="Initialization"));
   parameter Boolean limitsAtInit = true
   "= false, if limits are ignored during initialization"
     annotation(Evaluate=true, Dialog(group="Initialization"));
@@ -38,7 +38,7 @@ block LimPI_withFeedForward
                 enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
                        controllerType==.Modelica.Blocks.Types.SimpleController.PID));
   parameter Real y_start=0 "Initial value of output"
-    annotation(Dialog(enable=initType == .Modelica.Blocks.Types.InitPID.InitialOutput, group=
+    annotation(Dialog(enable=initType == .Modelica.Blocks.Types.Init.InitialOutput,    group=
           "Initialization"));
   parameter Boolean strict=false
   "= true, if strict limits with noEvent(..)"
@@ -52,7 +52,7 @@ block LimPI_withFeedForward
     k=unitTime/Ti,
     y_start=xi_start,
     initType=if initType == InitPID.SteadyState then Init.SteadyState else if
-        initType == InitPID.InitialState or initType == InitPID.DoNotUse_InitialIntegratorState
+        initType == InitPID.InitialState or initType == InitPID.InitialState
          then Init.InitialState else Init.NoInit) if with_I annotation (
       Placement(transformation(extent={{-50,-40},{-30,-20}}, rotation=0)));
   Modelica.Blocks.Math.Gain gainPI(k=k) annotation (Placement(transformation(
@@ -68,13 +68,11 @@ block LimPI_withFeedForward
         rotation=0)));
   Modelica.Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I annotation (
       Placement(transformation(extent={{20,-80},{0,-60}},  rotation=0)));
-  Modelica.Blocks.Nonlinear.Limiter                   limiter(
+  Modelica.Blocks.Nonlinear.Limiter limiter(
     uMax=yMax,
     uMin=yMin,
-    strict=strict,
-    limitsAtInit=limitsAtInit)
-                        annotation (Placement(transformation(extent={{70,-10},{90,
-            10}}, rotation=0)));
+    strict=strict) annotation (Placement(transformation(extent={{70,-10},{90,10}},
+          rotation=0)));
 protected
   parameter Boolean with_I = controllerType==SimpleController.PI or
                              controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
@@ -92,7 +90,7 @@ initial equation
 equation
   assert(yMax >= yMin, "LimPID: Limits must be consistent. However, yMax (=" + String(yMax) +
                        ") < yMin (=" + String(yMin) + ")");
-  if initType == InitPID.InitialOutput and (y_start < yMin or y_start > yMax) then
+  if initType ==InitPID.InitialOutput  and (y_start < yMin or y_start > yMax) then
       Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
          ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
   end if;

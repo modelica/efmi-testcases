@@ -1,43 +1,44 @@
 within eFMI_TestCases.M16_ROM.TestSetups;
 partial model BaseSetup
   extends .eFMI_TestCases.Utilities.ClockedContinuousTwin;
-  extends Modelica.Icons.Example;
+  extends .Modelica.Icons.Example;
 
   replaceable Controllers.MatrixEqSystem matrixEqSystem(
     scalingFactor2D(
-      efmi = false))
+    efmi = false))
     constrainedby Controllers.PartialROMInterface
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+
   // Clocked configuration:
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock(
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock(
     useSolver = false,
     period = -1.0,
     solverMethod = "") if is_clocked
     "Must still be configured when 'is_clocked = true'."
     annotation (Placement(transformation(extent={{-78,52},{-62,68}})));
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked sample_n if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked sample_n if is_clocked
     annotation (Placement(transformation(extent={{-36,26},{-24,14}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample sample_tau if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Sample sample_tau if is_clocked
     annotation (Placement(transformation(extent={{-36,-26},{-24,-14}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_y[12] if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_y[12] if is_clocked
     annotation (Placement(transformation(extent={{64,-6},{76,6}})));
 
-  Modelica.Blocks.Sources.Sine scaledRPM(
+  .Modelica.Blocks.Sources.Sine scaledRPM(
     amplitude = 5000,
-    freqHz = 0.1,
+    f = 0.1,
     offset = 5500)
     annotation (Placement(transformation(
-      origin = {-70,20},
-      extent = {{-10, -10}, {10, 10}},
-      rotation = 0)));
-  Modelica.Blocks.Sources.Sine scaledTorque(
+      origin={-70,20},
+      extent={{-10,-10},{10,10}},
+      rotation=0)));
+  .Modelica.Blocks.Sources.Sine scaledTorque(
     amplitude = 150,
-    freqHz = 0.05,
+    f = 0.05,
     offset = 150)
     annotation (Placement(transformation(
-      origin = {-70,-20},
-      extent = {{-10, -10}, {10, 10}},
-      rotation = 0)));
+      origin={-70,-20},
+      extent={{-10,-10},{10,10}},
+      rotation=0)));
 
 equation
   if is_clocked then

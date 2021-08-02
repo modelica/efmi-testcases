@@ -1,32 +1,32 @@
 within eFMI_TestCases.M14_Rectifier.TestSetups;
 partial model OpenLoop
   extends .eFMI_TestCases.Utilities.ClockedContinuousTwin;
-  extends Modelica.Icons.Example;
+  extends .Modelica.Icons.Example;
 
-  replaceable Controllers.Generator_interface generator constrainedby
-    Controllers.Generator_interface
+  replaceable Controllers.Generator_interface generator
+    constrainedby Controllers.Generator_interface
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  Modelica.Blocks.Sources.Sine sine(
+  .Modelica.Blocks.Sources.Sine sine(
     amplitude = 50,
-    freqHz = 12)
+    f = 12)
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-  Modelica.Blocks.Sources.Pulse pulse(
+  .Modelica.Blocks.Sources.Pulse pulse(
     amplitude = 15,
     period = 1,
     offset = 0.1)
     annotation (Placement(transformation(extent={{80,-10},{60,10}})));
 
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked U_Ideal if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked U_Ideal if is_clocked
     annotation (Placement(transformation(extent={{-36,6},{-24,-6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold I if is_clocked annotation (
-      Placement(transformation(
-        extent={{-6,-6},{6,6}},
-        rotation=270,
-        origin={0,-30})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample U_Bat if is_clocked
+  .Modelica.Clocked.RealSignals.Sampler.Hold I if is_clocked
+    annotation (Placement(transformation(
+      extent={{-6,-6},{6,6}},
+      rotation=270,
+      origin={0,-30})));
+  .Modelica.Clocked.RealSignals.Sampler.Sample U_Bat if is_clocked
     annotation (Placement(transformation(extent={{36,-6},{24,6}})));
-  Modelica_Synchronous.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
+  .Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock clock if is_clocked
     annotation (Placement(transformation(extent={{-78,42},{-62,58}})));
 
 equation
@@ -61,7 +61,10 @@ equation
     connect(sine.y, generator.U_Ideal);
     connect(pulse.y, generator.U_Bat);
   end if;
-  annotation (Diagram(graphics={
+
+  annotation (
+    Diagram(
+      graphics={
         Rectangle(
           extent={{0,100},{100,80}},
           lineColor = {238,46,47},

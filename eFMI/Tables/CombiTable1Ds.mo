@@ -36,12 +36,12 @@ model CombiTable1Ds
     "Columns of table to be interpolated"
     annotation (Dialog(
       group = "Table data interpretation"));
-  parameter Modelica.Blocks.Types.Smoothness smoothness=
+  parameter .Modelica.Blocks.Types.Smoothness smoothness=
     Modelica.Blocks.Types.Smoothness.LinearSegments
     "Smoothness of table interpolation"
     annotation (Dialog(
       group = "Table data interpretation"));
-  parameter Modelica.Blocks.Types.Extrapolation extrapolation=
+  parameter .Modelica.Blocks.Types.Extrapolation extrapolation=
     Modelica.Blocks.Types.Extrapolation.LastTwoPoints
     "Extrapolation of data outside the definition range"
     annotation (Dialog(
@@ -50,7 +50,7 @@ model CombiTable1Ds
     "= true, if warning messages are to be printed if table input is outside the definition range"
     annotation (Dialog(
       group = "Table data interpretation",
-      enable = extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+      enable = extrapolation == .Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
 
   /* eFMI specific table interface */
 
@@ -62,7 +62,7 @@ model CombiTable1Ds
     annotation(Evaluate = true);
 
 protected
-  final Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(
+  final .Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds(
     final tableOnFile = tableOnFile,
     final table = table,
     final tableName = tableName,
@@ -111,7 +111,7 @@ protected
     convertSmoothness(smoothness)
     annotation(Evaluate = true);
   final parameter Integer efmi_extrapolation(min = 1, max = 2)=
-    (if extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint
+    (if extrapolation == .Modelica.Blocks.Types.Extrapolation.HoldLastPoint
      then 1 else 2)
     annotation(Evaluate = true);
 
@@ -137,12 +137,12 @@ initial algorithm
        (verboseExtrapolation),
     "eFMI.Tables.CombiTable1Ds: Only 'verboseExtrapolation = false' supported.");
   assert(
-    smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments
-    or smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments,
+    smoothness == .Modelica.Blocks.Types.Smoothness.ConstantSegments
+    or smoothness == .Modelica.Blocks.Types.Smoothness.LinearSegments,
     "eFMI.Tables.CombiTable1Ds: Unsupported smoothness.");
   assert(
-    extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint
-    or extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints,
+    extrapolation == .Modelica.Blocks.Types.Extrapolation.HoldLastPoint
+    or extrapolation == .Modelica.Blocks.Types.Extrapolation.LastTwoPoints,
     "eFMI.Tables.CombiTable1Ds: Unsupported extrapolation.");
 
 equation

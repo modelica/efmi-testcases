@@ -6,7 +6,7 @@ function getInterfaceVariableAnnotation "Returns the content of the annotation _
 
 algorithm
 
-  annot := ModelManagement.Structure.AST.GetAnnotation(modelName, "__fmi_InterfaceVariable");
+  annot := ModelManagement.Structure.AST.Classes.GetAnnotation(modelName, "__fmi_InterfaceVariable");
   ok := (Modelica.Utilities.Strings.length(annot) >= 10);
 
 annotation(__Dymola_interactive=true);

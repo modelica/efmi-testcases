@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M02_SimplePID "Example of a PID controller for a simple drivetrain with DC motor"
- extends Modelica.Icons.ExamplesPackage;
+ extends .Modelica.Icons.ExamplesPackage;
 
 annotation (preferredView="info", Documentation(info="<html>
 <p>

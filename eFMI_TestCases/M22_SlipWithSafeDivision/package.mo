@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M22_SlipWithSafeDivision "Example of a wheel with linear tyre slip to test efmi built-in function save_posdiv(..)"
-  extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
 annotation (Documentation(info="<html>
 

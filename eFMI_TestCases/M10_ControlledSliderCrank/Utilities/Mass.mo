@@ -1,17 +1,22 @@
 within eFMI_TestCases.M10_ControlledSliderCrank.Utilities;
 model Mass "Sliding mass with inertia"
-  extends Modelica.Mechanics.Translational.Interfaces.PartialRigid(
-    s(start = 0, stateSelect = stateSelect));
+  extends .Modelica.Mechanics.Translational.Interfaces.PartialRigid(
+    s(start = 0,
+      stateSelect = stateSelect));
 
-  parameter Modelica.SIunits.Mass m(min = 0, start = 1)
+  parameter .Modelica.Units.SI.Mass m(
+    min = 0,
+    start = 1)
     "Mass of the sliding mass";
   parameter StateSelect stateSelect = StateSelect.default
     "Priority to use s and v as states"
     annotation (Dialog(tab = "Advanced"));
 
-  Modelica.SIunits.Velocity v(start = 0, stateSelect = stateSelect)
+  .Modelica.Units.SI.Velocity v(
+    start = 0,
+    stateSelect = stateSelect)
     "Absolute velocity of component";
-  Modelica.SIunits.Acceleration a(start = 0)
+  .Modelica.Units.SI.Acceleration a(start=0)
     "Absolute acceleration of component";
 
 equation

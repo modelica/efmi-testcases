@@ -1,6 +1,6 @@
 ﻿within eFMI_TestCases.Icons;
 partial class ReferenceTests
-  extends Modelica.Icons.Package;
+  extends .Modelica.Icons.Package;
 
   annotation (Icon(graphics={
         Text(

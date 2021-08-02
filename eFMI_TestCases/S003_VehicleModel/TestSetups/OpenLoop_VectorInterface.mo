@@ -5,9 +5,10 @@ model OpenLoop_VectorInterface
   replaceable Controllers.VehiclePlant vehiclePlant
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  Modelica_Synchronous.RealSignals.Sampler.SampleVectorizedAndClocked u_sample(n=2)
+  .Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked u_sample(
+    n = 2)
     annotation (Placement(transformation(extent={{-36,6},{-24,-6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x[8]
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x[8]
     annotation (Placement(transformation(extent={{26,-6},{38,6}})));
 
 equation

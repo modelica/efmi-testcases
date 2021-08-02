@@ -5,25 +5,25 @@ model OpenLoop_ScalarInterface
   replaceable Controllers.VehiclePlant_ScalarInterface vehiclePlant
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  Modelica_Synchronous.RealSignals.Sampler.SampleClocked sample_u1
+  .Modelica.Clocked.RealSignals.Sampler.SampleClocked sample_u1
     annotation (Placement(transformation(extent={{-36,12},{-24,0}})));
-  Modelica_Synchronous.RealSignals.Sampler.Sample sample_u2
+  .Modelica.Clocked.RealSignals.Sampler.Sample sample_u2
     annotation (Placement(transformation(extent={{-36,0},{-24,-12}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x6
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x6
     annotation (Placement(transformation(extent={{64,-36},{76,-24}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x7
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x7
     annotation (Placement(transformation(extent={{64,-56},{76,-44}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x8
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x8
     annotation (Placement(transformation(extent={{64,-76},{76,-64}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x5
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x5
     annotation (Placement(transformation(extent={{64,-16},{76,-4}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x4
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x4
     annotation (Placement(transformation(extent={{64,4},{76,16}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x3
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x3
     annotation (Placement(transformation(extent={{64,24},{76,36}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x2
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x2
     annotation (Placement(transformation(extent={{64,44},{76,56}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_x1
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_x1
     annotation (Placement(transformation(extent={{64,64},{76,76}})));
 
 equation

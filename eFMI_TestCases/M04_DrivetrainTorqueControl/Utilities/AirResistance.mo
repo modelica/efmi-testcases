@@ -1,10 +1,10 @@
 within eFMI_TestCases.M04_DrivetrainTorqueControl.Utilities;
 model AirResistance
   parameter Real c_w=0.27;
-  parameter Modelica.SIunits.Area area=2.19;
-  parameter Modelica.SIunits.Density rho=1.2;
-  Modelica.SIunits.Force F_drag;
-  Modelica.SIunits.Velocity v_rel;
+  parameter Modelica.Units.SI.Area area=2.19;
+  parameter Modelica.Units.SI.Density rho=1.2;
+  Modelica.Units.SI.Force F_drag;
+  Modelica.Units.SI.Velocity v_rel;
 
   Modelica.Blocks.Interfaces.RealInput v_wind annotation (Placement(
         transformation(

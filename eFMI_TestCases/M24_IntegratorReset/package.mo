@@ -1,6 +1,6 @@
 within eFMI_TestCases;
 package M24_IntegratorReset "Example to test integrator with reset (reinit in when-clause)"
-   extends Modelica.Icons.ExamplesPackage;
+  extends .Modelica.Icons.ExamplesPackage;
 
 annotation (Documentation(info="<html>
 <p>

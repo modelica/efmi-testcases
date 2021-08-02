@@ -5,12 +5,13 @@ model OpenLoop_VectorInterface
   replaceable Controllers.LinearSystemOfEquations controller
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));
 
-  Modelica.Blocks.Routing.Multiplex4 multiplex4_1
+  .Modelica.Blocks.Routing.Multiplex4 multiplex4_1
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
 
-  Modelica_Synchronous.RealSignals.Sampler.SampleVectorizedAndClocked u_sample(n=4)
+  .Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked u_sample(
+    n = 4)
     annotation (Placement(transformation(extent={{4,6},{16,-6}})));
-  Modelica_Synchronous.RealSignals.Sampler.Hold hold_y[4]
+  .Modelica.Clocked.RealSignals.Sampler.Hold hold_y[4]
     annotation (Placement(transformation(extent={{64,-6},{76,6}})));
 
 equation
