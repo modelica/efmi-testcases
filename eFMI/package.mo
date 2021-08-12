@@ -7,6 +7,8 @@ package eFMI "eFMI: Support library to ease preparing Modelica models for eFMI t
   annotation (
     preferredView="info",
     version="1.1.0",
+    Protection(
+      access = Access.packageDuplicate),
     uses(Modelica(version="4.0.0")),
     Documentation(info="<html>
 <p>Library <b>eFMI</b> provides Modelica Standard Library table-adapters and GALEC builtin function implementations to ease migration of Modelica models for <a href=\"https://efmi-standard.org/\">eFMI</a> tooling. It is officially released and maintained by the <a href=\"https://efmi-standard.org/\">MAP eFMI</a> in accordance with new releases of the eFMI standard.</p>
