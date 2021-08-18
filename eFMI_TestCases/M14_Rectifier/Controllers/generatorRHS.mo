@@ -17,5 +17,5 @@ function generatorRHS
   external "C" dU_R = generator_voltageSlope(R, L, U_Ideal, U_Bat, U_R)
     annotation (
       Include="#include \"generator_voltageSlope.c\"",
-      IncludeDirectory="modelica://eFMI_TestCases/M14_Rectifier/Resources/C-Code");
+      IncludeDirectory="modelica://eFMI_TestCases/Resources/C-Code/M14_Rectifier");
 end generatorRHS;

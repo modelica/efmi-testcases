@@ -4,9 +4,9 @@ package M14_Rectifier "Examples for ideal rectifier implementations"
 
   annotation (preferredView="info", Documentation(info="<html>
 <p>This is test case of a simple rectifier model used within a generator circuit charging a battery. The rectifier implementation reflects an ideal switching behavior of the connections between the left and right pins depending on the current flow direction. </p>
-<blockquote><img src=\"modelica://eFMI_TestCases/M14_Rectifier/Resources/Images/GeneratorModel_Illustration_reduced_small.png\"/> </blockquote>
+<blockquote><img src=\"modelica://eFMI_TestCases/Resources/Images/M14_Rectifier/GeneratorModel_Illustration_reduced_small.png\"/> </blockquote>
 <p>Idealizing the rectifier behavior, the above system is reduced to the ordinary differential equation (ODE) </p>
-<blockquote><img src=\"modelica://eFMI_TestCases/M14_Rectifier/Resources/Images/generator_ODE.png\"/> </blockquote>
+<blockquote><img src=\"modelica://eFMI_TestCases/Resources/Images/M14_Rectifier/generator_ODE.png\"/> </blockquote>
 <p>where <i>U_R</i> is the voltage drop over the resistor. The battery voltage <i>U_Bat</i> and the ideal generatior voltage <i>U_Ideal</i> are inputs to the model. </p>
 <p>The goal of this testcase is to evaluate the eFMU code compactness. Former tests with FMU export of M14_Rectifier.Generators.Generator&apos; model show unnecessarily bloated code for the generator. The second example model &apos;M14_Rectifier.Generators.Generator_Modelica&apos; uses the above mentioned ODE formulation for the generator as one monolithic component. The third example model &apos;M14_Rectifier.Generators.Generator_C_Code&apos; uses manually optimized C-code for the right-hand-side of the generator ODE. </p>
 <p>The models to be exportetd as eFMU are: </p>

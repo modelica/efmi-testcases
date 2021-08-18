@@ -16,7 +16,7 @@ A slider-crank mechanism that is directed in vertical direction. At the top a sp
 </p>
 
 <blockquote>
-<img src=\"modelica://eFMI_TestCases/M10_ControlledSliderCrank/Resources/Images/sliderCrank1.png\">
+<img src=\"modelica://eFMI_TestCases/Resources/Images/M10_ControlledSliderCrank/sliderCrank1.png\">
 </blockquote>
 
 <p>
@@ -27,7 +27,7 @@ the vertical coordinate of the top mass has significant vibrations.
 </p>
 
 <blockquote>
-<img src=\"modelica://eFMI_TestCases/M10_ControlledSliderCrank/Resources/Images/sliderCrank2.png\">
+<img src=\"modelica://eFMI_TestCases/Resources/Images/M10_ControlledSliderCrank/sliderCrank2.png\">
 </blockquote>
 
 <p>
