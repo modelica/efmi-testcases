@@ -15,7 +15,7 @@ Currently, this example simulates only in Dymola (version &ge; 2019 FD01).
 
 <p>
 The plant model is a copy from
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.ControlledMixingUnit\">Modelica_Synchronous.Examples.Systems.ControlledMixingUnit</a>:
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Modelica.Clocked.Examples.Systems.ControlledMixingUnit</a>:
 A substance A is flowing continuously into a mixing reactor.
 Due to a catalyst, the substance reacts and splits into several base
 substances that are continuously removed. The reaction generates
@@ -30,7 +30,7 @@ These equations are collected together in input/output block
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica_Synchronous/Resources/Images/Examples/ControlledMixingUnit_PlantModel.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_PlantModel.png\">
 </blockquote>
 
 <p>

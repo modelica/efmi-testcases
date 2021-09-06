@@ -10,7 +10,7 @@ model PackedMatrixEqSystem_ImplEuler
     __Dymola_experimentFlags(
       Hidden(InitializeClockedDiscretizedStates = true)),
     __Dymola_Commands(file(
-        ensureSimulated=true) = "M16_ROM/Resources/DymolaScripts/plot.mos" "plot"),
+        ensureSimulated=true) = "eFMI_TestCases/Resources/Scripts/Dymola/M16_ROM/plot.mos" "plot"),
      __iti_namesAtInterface={
   MapName(from="matrixEqSystem.n",to="n"),
   MapName(from="matrixEqSystem.tau",to="tau"),

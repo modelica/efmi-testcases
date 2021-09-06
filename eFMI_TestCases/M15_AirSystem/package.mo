@@ -5,7 +5,7 @@ package M15_AirSystem "Example of an (academic) engine air system"
     annotation (preferredView="info", Documentation(info="<html>
 <p>The model contained in this package reflects the dynamics of an intake air manifold as well as fuel injection and crank shaft dynamics in a spark ignition engine. It is a well-known benchmark model for engine modelling and control called mean value engine model (MVEM). The implementation follows the equations given in [1] and [2] (and on a limited basis also [3]). </p>
 <p>The two inputs of this simulation model are the throttle angle <i>v</i> and the injected fuel mass flow rate <i>m_dot_f_i</i> respectively. <i>AFR</i> is the output of the model. The manifold temperature <i>T_i</i>, the manifold pressure <i>P_i</i> and the crank shaft speed <i>n</i> are the measurable intermediate variables of the AFR system. </p>
-<blockquote><img src=\"modelica://eFMI_TestCases/M15_AirSystem/Resources/Images/M15_AirSystem_sketch.png\"/></blockquote>
+<blockquote><img src=\"modelica://eFMI_TestCases/Resources/Images/M15_AirSystem/M15_AirSystem_sketch.png\"/></blockquote>
 <blockquote><b>Fig. 1</b> Sketch of the engine model structure according to [1]. </blockquote>
 <p>Fig. 1 depicts a sketch of the model structure. The time delay subsystem in the figure is without any great significance and is left away in this reimplementation. The connections between the subsystems are single signal connections instead of physical ports. </p>
 <p><b>1. AirSystem_ExplEuler:</b> </p>

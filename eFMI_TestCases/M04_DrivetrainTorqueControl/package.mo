@@ -29,7 +29,7 @@ of the vehicle where a variable drag force according to the actual vehicle and w
 </p>
 
 <p>
-<img src=\"modelica://eFMI_TestCases/M04_DriveTrainTorqueControl/Resources/Images/plant1.png\">
+<img src=\"modelica://eFMI_TestCases/Resources/Images/M04_DriveTrainTorqueControl/plant1.png\">
 </p>
 
 <p>

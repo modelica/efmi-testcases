@@ -15,7 +15,7 @@ model AirSystem_ExplEuler
     __Dymola_Commands(
       file(
         ensureSimulated = true,
-        autoRun = true) = "M15_AirSystem/Resources/DymolaScripts/plot.mos" "plot"),
+        autoRun = true) = "eFMI_TestCases/Resources/Scripts/Dymola/M15_AirSystem/plot.mos" "plot"),
     __iti_namesAtInterface={
   MapName(from="airSystem.v",to="v"),
   MapName(from="airSystem.m_dot_f_i",to="m_dot_f_i"),

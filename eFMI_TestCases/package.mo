@@ -8,6 +8,9 @@ package eFMI_TestCases "eFMI_TestCases: Official MAP eFMI library with test-scen
   annotation (
     preferredView="info",
     version="1.1.0",
+    Protection(
+      __Dymola_showFlat = true,
+      access = Access.packageDuplicate),
     uses(
       Modelica(version="4.0.0"),
       eFMI(version="1.1.0"),

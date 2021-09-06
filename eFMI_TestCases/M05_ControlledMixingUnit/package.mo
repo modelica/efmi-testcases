@@ -9,7 +9,7 @@ package M05_ControlledMixingUnit "Example of a controlled mixing reactor where a
 Control of a simple mixing unit [<i>Föllinger 1998</i>] where the <b>inverse model of the nonlinear
 plant</b> is used as feedforward control. The feedback control is a simple P-controller.
 This example is derived from
-<a href=\"modelica://Modelica_Synchronous.Examples.Systems.ControlledMixingUnit\">Modelica_Synchronous.Examples.Systems.ControlledMixingUnit</a>
+<a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">Modelica.Clocked.Examples.Systems.ControlledMixingUnit</a>
 where all details are described.
 
 <p>
@@ -27,7 +27,7 @@ These equations are collected together in input/output block
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica_Synchronous/Resources/Images/Examples/ControlledMixingUnit_PlantModel.png\">
+<img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_PlantModel.png\">
 </blockquote>
 
 
@@ -102,8 +102,8 @@ GERMANY
     <td valign=\"top\">Andreas Pfeiffer, Martin Otter (DLR)</td>
     <td valign=\"top\">&bull; Initial continuous and synchronous versions of the
     controlled mixing unit, based on the
-    <a href=\"modelica://Modelica_Synchronous.Examples.Systems.ControlledMixingUnit\">
-    mixing reactor</a> example of <code>Modelica_Synchronous</code>.</td>
+    <a href=\"modelica://Modelica.Clocked.Examples.Systems.ControlledMixingUnit\">
+    mixing reactor</a> example of <code>Modelica.Clocked</code>.</td>
     </tr>
     </table></html>"));
 end M05_ControlledMixingUnit;

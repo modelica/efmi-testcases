@@ -13,7 +13,7 @@ model AirSystem_ImplEuler
       Interval=0.01,
       __Dymola_Algorithm="Euler"),
     __Dymola_Commands(file(ensureSimulated=true)=
-        "M15_AirSystem/Resources/DymolaScripts/plot.mos" "plot"),
+        "eFMI_TestCases/Resources/Scripts/Dymola/M15_AirSystem/plot.mos" "plot"),
     __iti_namesAtInterface={
   MapName(from="airSystem.v",to="v"),
   MapName(from="airSystem.m_dot_f_i",to="m_dot_f_i"),
