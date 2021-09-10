@@ -21,7 +21,6 @@ model Controller
         max = 1e4)),
     yMax = tauM_max,
     wp = 1,
-    controllerType = .Modelica.Blocks.Types.SimpleController.PI,
     k = k_PI,
     Ti = Ti_PI,
     Ni = Ni_PI)
@@ -46,9 +45,9 @@ model Controller
     annotation (Placement(transformation(extent={{-20,-10},{-40,10}})));
 
 equation
-  connect(gear.y, PI.y_ff)
+  connect(gear.y, PI.u_ff)
     annotation (Line(
-      points={{20.6,6},{38,6}},
+      points={{20.6,6},{26,6},{26,-20},{56,-20},{56,-12}},
       color = {0,0,127},
       smooth = Smooth.None));
   connect(PI.y, gear1.u)
@@ -85,6 +84,6 @@ equation
       color={0,0,127}));
   connect(approxPlant.w_rel, PI.u_s)
     annotation (Line(
-      points={{-30,-11},{-30,-24},{32,-24},{32,0},{38,0}},
+      points={{-30,-11},{-30,-24},{34,-24},{34,0},{38,0}},
       color={0,0,127}));
 end Controller;

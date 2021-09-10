@@ -9,7 +9,7 @@ package M09_MixingUnit_FBL "Example of a controlled mixing reactor that is contr
 Simple mixing unit [<i>Föllinger 1998</i>] that is controlled by a <b>feedback-linearization</b> controller
 (a nonlinear inverse model of the plant is used in the <b>feedback path</b> of the controller).
 In order to define this controller, the non-standard Modelica annotation <b>useAsInputForState</b>
-is used in model <a href=\"modelica://eFMI_TestCases.M09_ControlledMixingUnit_FeedbackLinearization.Utilities.InputToState\">Utilitizes.InputToState</a>.
+is used in model <a href=\"modelica://eFMI_TestCases.M09_MixingUnit_FBL.Utilities.InputToState\">Utilitizes.InputToState</a>.
 Currently, this example simulates only in Dymola (version &ge; 2019 FD01).
 </p>
 
