@@ -16,12 +16,14 @@ model Controller
   .Modelica.Blocks.Math.Gain gear(
     k = gearRatio)
     annotation (Placement(transformation(extent={{8,0},{20,12}})));
-  Utilities.LimPI_withFeedForward PI(
+  .Modelica.Blocks.Continuous.LimPID PI(
+    final controllerType = .Modelica.Blocks.Types.SimpleController.PI,
+    final withFeedForward = true,
+    k(min = -500) = k_PI,
     I(y(min = -1e4,
         max = 1e4)),
     yMax = tauM_max,
     wp = 1,
-    k = k_PI,
     Ti = Ti_PI,
     Ni = Ni_PI)
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
