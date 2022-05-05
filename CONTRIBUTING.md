@@ -10,7 +10,7 @@ When you submit a pull request, a bot will automatically determine whether you n
 
 ## Reporting issues
 
-Please check the available labels and use them. The label descriptions clarify the kind of issues that can be reported. _Every_ issue must be labeled with _one_ collated-to category label (`eFMI library`, `eFMI_TestCases library`, `GALEC examples` or `infrastructure`) denoting the artefacts of the repository the issue is about. The issue also _must_ be categorized if it is an enhancement request or an actual bug (`enhancement` and `bug` labels). The `documentation` label is optional and used to denote that the issue is about the documentation of its collated-to category.
+Please check the available labels and use them. The label descriptions clarify the kind of issues that can be reported. _Every_ issue must be labeled with _one_ collated-to category label (`infrastructure`, `eFMI library`, `eFMI_TestCases library`, `GALEC examples`) denoting the artefacts of the repository the issue is about. The issue also _must_ be categorized if it is an enhancement request or an actual bug (`enhancement` and `bug` labels). The `documentation` label is optional and used to denote that the issue is about the documentation of its collated-to category.
 
 ## Branch protection and commits/pull requests
 
