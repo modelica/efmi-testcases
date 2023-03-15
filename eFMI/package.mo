@@ -6,7 +6,7 @@ package eFMI "eFMI: Support library to ease preparing Modelica models for eFMI t
 
   annotation (
     preferredView="info",
-    version="1.1.0",
+    version="1.0.1",
     Protection(
       __Dymola_showFlat = true,
       access = Access.packageDuplicate),

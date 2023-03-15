@@ -7,13 +7,13 @@ package eFMI_TestCases "eFMI_TestCases: Official MAP eFMI library with test-scen
 
   annotation (
     preferredView="info",
-    version="1.1.0",
+    version="1.0.1",
     Protection(
       __Dymola_showFlat = true,
       access = Access.packageDuplicate),
     uses(
       Modelica(version="4.0.0"),
-      eFMI(version="1.1.0"),
+      eFMI(version="1.0.1"),
       ModelManagement(version = "1.3")),
     Documentation(info="<html>
 <p>Library <b>eFMI_TestCases</b> provides application scenarios for evaluating and crosschecking <a href=\"https://efmi-standard.org/\">eFMI</a> tooling. It is officially released and maintained by the <a href=\"https://efmi-standard.org/\">MAP eFMI</a> in accordance with new releases of the eFMI standard.</p>
