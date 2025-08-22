@@ -1,4 +1,4 @@
-﻿within eFMI_TestCases.Icons;
+within eFMI_TestCases.Icons;
 partial class ReferenceTests
   extends .Modelica.Icons.Package;
 

@@ -1,4 +1,4 @@
-﻿within eFMI_TestCases.M15_AirSystem.PlantModels;
+within eFMI_TestCases.M15_AirSystem.PlantModels;
 model Air_Fuel_Ratio "Air–fuel ratio measurement"
   extends .Modelica.Blocks.Icons.Block;
 

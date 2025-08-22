@@ -1,4 +1,4 @@
-﻿within eFMI_TestCases;
+within eFMI_TestCases;
 package M04_DrivetrainTorqueControl "Example to reduce the vibrations in an electric drivetrain by using a
    torque controller with an inverse model of the drivetrain."
   extends .Modelica.Icons.ExamplesPackage;
