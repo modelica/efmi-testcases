@@ -66,6 +66,9 @@ partial model VehicleEquations
   parameter SI.Force FdR = 0
     "Drive force of rear tire";
 
+protected
+  final parameter SI.Inertia M_4_4 = Jx2+h^2*m2;
+
   // Inputs, to set somehow:
   SI.Angle delta
     "Front wheel steering angle";
@@ -143,7 +146,7 @@ equation
   M = [m, 0, h*m2*sin(phi), 0;
        0, m, 0, -h*m2*cos(phi);
        h*m2*sin(phi), 0, Jz1+Jz2*cos(phi)^2+(Jy2+h^2*m2)*sin(phi)^2, 0;
-       0, -h*m2*cos(phi), 0, Jx2+h^2*m2];
+       0, -h*m2*cos(phi), 0, M_4_4];
 
   k = {-m*r*vy + 2*h*m2*phidot*r*cos(phi),
        m*r*vx + h*m2*(phidot^2+r^2)*sin(phi),
