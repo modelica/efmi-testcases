@@ -5,5 +5,5 @@ package ActivationFunctions
   extends Icons.Identity;
   extends Icons.UnitStep;
   extends Icons.ReLU;
-  extends Icons.tanh;
+  extends Icons.Tanh;
 end ActivationFunctions;

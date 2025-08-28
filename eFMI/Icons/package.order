@@ -2,10 +2,14 @@ eFMI
 Table
 Function
 NeuralNet
+NeuralLayer
+NeuralBlock
+TensorFlowInput
+TensorFlowOutput
 CoordinateSystem
 Identity
 UnitStep
 ReLU
 Softplus
-tanh
+Tanh
 Sigmoid

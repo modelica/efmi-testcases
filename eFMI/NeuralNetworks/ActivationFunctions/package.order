@@ -1,0 +1,6 @@
+Identity
+UnitStep
+ReLU
+Softplus
+Tanh
+Sigmoid
