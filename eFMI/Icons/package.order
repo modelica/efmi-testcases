@@ -3,7 +3,7 @@ Table
 Function
 NeuralNet
 CoordinateSystem
-identity
+Identity
 UnitStep
 ReLU
 Softplus
