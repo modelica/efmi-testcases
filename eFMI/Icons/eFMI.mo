@@ -1,6 +1,7 @@
 within eFMI.Icons;
-class eFMI
+partial class eFMI
   annotation (
+    preferredView = "icon",
     Icon(
       graphics={
         Bitmap(

@@ -1,0 +1,9 @@
+within eFMI.NeuralNetworks;
+package ActivationFunctions
+  extends .Modelica.Icons.Package;
+  extends Icons.CoordinateSystem;
+  extends Icons.identity;
+  extends Icons.UnitStep;
+  extends Icons.ReLU;
+  extends Icons.tanh;
+end ActivationFunctions;

@@ -1,3 +1,11 @@
 eFMI
 Table
 Function
+NeuralNet
+CoordinateSystem
+identity
+UnitStep
+ReLU
+Softplus
+tanh
+Sigmoid
