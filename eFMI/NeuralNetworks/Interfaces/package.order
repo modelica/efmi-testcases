@@ -1,5 +1,7 @@
 TensorFlowInput
 TensorFlowOutput
 TensorFlowOperation
-Preprocessing
+Preprocessor
+ActivationType
 ActivationFunction
+NeuralLayer

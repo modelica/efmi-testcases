@@ -8,7 +8,38 @@ connector TensorFlowOutput = output Real
           points={{0,100},{100,0},{0,-100},{-100,0},{0,100}},
           fillPattern=FillPattern.Solid,
           fillColor={190,190,190},
-          pattern=LinePattern.None),
+          lineColor={129,129,129},
+          lineThickness=1),
+        Polygon(
+          points={{-10,40},{-40,40},{-40,-40},{-10,-40},{-10,-30},{-30,-30},
+            {-30,30},{-10,30},{-10,40}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          fillColor={129,129,129}),
+        Polygon(
+          points={{10,40},{40,40},{40,-40},{10,-40},{10,-30},{30,-30},{30,30},
+            {10,30},{10,40}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          fillColor={129,129,129}),
+        Rectangle(
+          extent={{-6,20},{6,8}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          fillColor={129,129,129}),
+        Rectangle(
+          extent={{-6,-8},{6,-20}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          fillColor={129,129,129})}),
+    Diagram(
+      graphics={
+        Polygon(
+          points={{0,100},{100,0},{0,-100},{-100,0},{0,100}},
+          fillPattern=FillPattern.Solid,
+          fillColor={190,190,190},
+          lineColor={129,129,129},
+          lineThickness=1),
         Polygon(
           points={{-10,40},{-40,40},{-40,-40},{-10,-40},{-10,-30},{-30,-30},
             {-30,30},{-10,30},{-10,40}},

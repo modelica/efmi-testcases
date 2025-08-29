@@ -1,8 +1,10 @@
-within eFMI.NeuralNetworks.Preprocessing;
+within eFMI.NeuralNetworks.Preprocessors;
 model StandardScoreNormalize
   "Standard score (z-score) normalization."
 
-  extends Interfaces.Preprocessing(final ninout = size(mean, 1));
+  extends Interfaces.Preprocessor(
+    final nin = size(mean, 1),
+    final nout = size(mean, 1));
 
   parameter Real[:] mean
     "⁠μ (mu): Mean for each dimension of the training inputs.";

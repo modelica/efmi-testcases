@@ -1,5 +1,5 @@
 within eFMI.NeuralNetworks;
-package Layers
+package NeuralLayers
   extends .Modelica.Icons.Package;
   extends Icons.NeuralLayer;
-end Layers;
+end NeuralLayers;

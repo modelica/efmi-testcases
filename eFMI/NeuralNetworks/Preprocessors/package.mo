@@ -1,5 +1,5 @@
 within eFMI.NeuralNetworks;
-package Preprocessing
+package Preprocessors
   extends .Modelica.Icons.Package;
 
   annotation (Icon(graphics={
@@ -60,4 +60,4 @@ package Preprocessing
          fillPattern=FillPattern.Solid,
          extent={{-24,2},{-12,14}},
           pattern=LinePattern.None)}));
-end Preprocessing;
+end Preprocessors;

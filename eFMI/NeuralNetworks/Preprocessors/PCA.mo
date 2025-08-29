@@ -1,10 +1,12 @@
-within eFMI.NeuralNetworks.Preprocessing;
+within eFMI.NeuralNetworks.Preprocessors;
 model PCA
   "Principal component analysis (PCA)."
 
-  extends Interfaces.Preprocessing(final ninout = size(A, 1));
+  extends Interfaces.Preprocessor(
+    final nin = size(A, 2),
+    final nout = size(A, 1));
 
-  parameter Real[:, size(A, 1)] A
+  parameter Real[:, :] A
     "Transformation matrix, based on the eigenvectors of the covariance matrix
      of all training features.";
 

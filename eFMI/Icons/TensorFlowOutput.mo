@@ -8,7 +8,8 @@ partial model TensorFlowOutput
           points={{0,100},{100,0},{0,-100},{-100,0},{0,100}},
           fillPattern=FillPattern.Solid,
           fillColor={190,190,190},
-          pattern=LinePattern.None),
+          lineColor={129,129,129},
+          lineThickness=1),
         Polygon(
           points={{-10,40},{-40,40},{-40,-40},{-10,-40},{-10,-30},{-30,-30},
             {-30,30},{-10,30},{-10,40}},

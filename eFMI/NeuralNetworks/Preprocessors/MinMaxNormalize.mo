@@ -1,8 +1,10 @@
-within eFMI.NeuralNetworks.Preprocessing;
+within eFMI.NeuralNetworks.Preprocessors;
 model MinMaxNormalize
   "Min-max normalization."
 
-  extends Interfaces.Preprocessing(final ninout = size(min, 1));
+  extends Interfaces.Preprocessor(
+    final nin = size(min, 1),
+    final nout = size(min, 1));
 
   parameter Real[:] min
     "Minimum for each dimension of the training inputs.";

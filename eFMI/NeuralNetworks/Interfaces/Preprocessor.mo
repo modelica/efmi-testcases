@@ -1,7 +1,7 @@
 within eFMI.NeuralNetworks.Interfaces;
-partial model Preprocessing
+partial model Preprocessor
   extends Icons.NeuralLayer;
-  extends Interfaces.TensorFlowOperation;
+  extends TensorFlowOperation;
 
   annotation (
     Icon(
@@ -12,4 +12,4 @@ partial model Preprocessing
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           lineThickness=0.5)}));
-end Preprocessing;
+end Preprocessor;

@@ -8,22 +8,22 @@ partial class NeuralLayer
          lineColor={0,0,0},
          fillColor={190,190,190},
          fillPattern=FillPattern.Sphere,
-         extent={{-10,70},{10,50}}),
+         extent={{-10,90},{10,70}}),
         Ellipse(
          lineColor={0,0,0},
          fillColor={190,190,190},
          fillPattern=FillPattern.Sphere,
-         extent={{-10,40},{10,20}}),
+         extent={{-10,50},{10,30}}),
         Ellipse(
          lineColor={0,0,0},
          fillColor={190,190,190},
          fillPattern=FillPattern.Sphere,
-         extent={{-10,-20},{10,-40}}),
+         extent={{-10,-30},{10,-50}}),
         Ellipse(
          lineColor={0,0,0},
          fillColor={190,190,190},
          fillPattern=FillPattern.Sphere,
-         extent={{-10,-50},{10,-70}}),
+         extent={{-10,-70},{10,-90}}),
         Ellipse(
          fillColor={0,0,0},
          fillPattern=FillPattern.Solid,
@@ -40,35 +40,35 @@ partial class NeuralLayer
          extent={{-2,-8},{2,-12}},
           pattern=LinePattern.None),
         Line(
-         points={{-90,0},{-10,60}},
+         points={{-90,0},{-10,80}},
          color={140,140,140},
          thickness=0.5),
         Line(
-         points={{-90,0},{-10,30}},
+         points={{-90,0},{-10,40}},
          color={140,140,140},
          thickness=0.5),
         Line(
-         points={{-90,0},{-10,-30}},
+         points={{-90,0},{-10,-40}},
          color={140,140,140},
          thickness=0.5),
         Line(
-         points={{-90,0},{-10,-60}},
+         points={{-90,0},{-10,-80}},
          color={140,140,140},
          thickness=0.5),
         Line(
-         points={{10,-60},{90,0}},
+         points={{10,-80},{90,0}},
          color={140,140,140},
          thickness=0.5),
         Line(
-         points={{10,-30},{90,0}},
+         points={{10,-40},{90,0}},
          color={140,140,140},
          thickness=0.5),
         Line(
-         points={{10,30},{90,0}},
+         points={{10,40},{90,0}},
          color={140,140,140},
          thickness=0.5),
         Line(
-         points={{10,60},{90,0}},
+         points={{10,80},{90,0}},
          color={140,140,140},
          thickness=0.5)}));
 end NeuralLayer;
