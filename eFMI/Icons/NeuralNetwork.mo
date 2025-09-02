@@ -1,5 +1,5 @@
 within eFMI.Icons;
-partial class NeuralNet
+partial class NeuralNetwork
   annotation (
     preferredView = "icon",
     Icon(
@@ -150,4 +150,4 @@ partial class NeuralNet
          points={{50,-60},{80,0}},
          color={140,140,140},
          thickness=0.5)}));
-end NeuralNet;
+end NeuralNetwork;

@@ -19,15 +19,45 @@ model SimpleTest
   Modelica.Blocks.Math.Add3 add3(k3=-1)
     annotation (Placement(transformation(extent={{40,30},{60,50}})));
 
-  eFMI.NeuralNetworks.NeuralLayers.DenseLayer denseLayer1(
-    redeclare eFMI.NeuralNetworks.ActivationFunctions.Tanh activationFunction,
-    weights={{-0.7039596170222842},{-0.8750912730224503}},
-    biases={1.169784394444224,-1.344723440170712})
-    annotation (Placement(transformation(extent={{-10,-52},{30,-12}})));
-  eFMI.NeuralNetworks.NeuralLayers.DenseLayer denseLayer2(
-    weights={{-4.513856227908402,2.4932885356708683}},
-    biases={3.897109323824147})
-    annotation (Placement(transformation(extent={{50,-52},{90,-12}})));
+  SimpleNN simpleNN
+    annotation (Placement(transformation(extent={{0,-40},{40,0}})));
+
+  model SimpleNN
+    extends eFMI.NeuralNetworks.Interfaces.NeuralNetwork(
+      final preprocessor(
+        final nin = denseLayer1.nin),
+      final postprocessor(
+        final nin = denseLayer2.nout));
+
+    eFMI.NeuralNetworks.NeuralLayers.DenseLayer denseLayer1(
+      redeclare eFMI.NeuralNetworks.ActivationFunctions.Tanh activationFunction,
+      parameters(
+        weights = {{-0.7039596170222842},{-0.8750912730224503}},
+        biases = {1.169784394444224,-1.344723440170712}))
+      annotation (Placement(transformation(extent={{-20,20},{20,60}})));
+    eFMI.NeuralNetworks.NeuralLayers.DenseLayer denseLayer2(
+      parameters(
+        weights = {{-4.513856227908402,2.4932885356708683}},
+        biases = {3.897109323824147}))
+      annotation (Placement(transformation(extent={{-20,-60},{20,-20}})));
+
+  equation
+    connect(preprocessor.y, denseLayer1.x)
+      annotation (Line(
+        points={{-50,0},{-34,0},{-34,40},{-20,40}},
+        color={129,129,129},
+        thickness=1));
+    connect(denseLayer1.y, denseLayer2.x)
+      annotation (Line(
+        points={{20,40},{26,40},{26,0},{-26,0},{-26,-40},{-20,-40}},
+        color={129,129,129},
+        thickness=1));
+    connect(denseLayer2.y, postprocessor.x)
+      annotation (Line(
+        points={{20,-40},{34,-40},{34,0},{50,0}},
+        color={129,129,129},
+        thickness=1));
+  end SimpleNN;
 
 equation
   connect(sine.y, product1.u1)
@@ -58,13 +88,8 @@ equation
     annotation (Line(
       points={{20.6,26},{30,26},{30,32},{38,32}},
       color={0,0,127}));
-  connect(denseLayer1.y, denseLayer2.x)
+  connect(sine.y, simpleNN.x[1])
     annotation (Line(
-      points={{30,-32},{50,-32}},
-      color={129,129,129},
-      thickness=1));
-  connect(sine.y, denseLayer1.x[1])
-    annotation (Line(
-      points={{-38,0},{-30,0},{-30,-32},{-10,-32}},
+      points={{-38,0},{-30,0},{-30,-20},{0,-20}},
       color={0,0,127}));
 end SimpleTest;

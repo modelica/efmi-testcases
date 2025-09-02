@@ -1,7 +1,8 @@
 eFMI
 Table
 Function
-NeuralNet
+NeuralParameters
+NeuralNetwork
 NeuralLayer
 NeuralBlock
 TensorFlowInput

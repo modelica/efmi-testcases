@@ -5,3 +5,4 @@ Preprocessor
 ActivationType
 ActivationFunction
 NeuralLayer
+NeuralNetwork

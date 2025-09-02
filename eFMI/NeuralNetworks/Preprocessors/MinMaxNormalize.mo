@@ -12,8 +12,8 @@ model MinMaxNormalize
     "Maximum for each dimension of the training inputs.";
 
 equation
-  y = (x - min) ./ (max - min)
-    annotation(__Dymola_Expand = false);
+  y = (x - min) ./ (max - min);
+    //annotation(__Dymola_Expand = false);
 
   annotation (
     Icon(
