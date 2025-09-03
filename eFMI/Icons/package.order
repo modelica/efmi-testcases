@@ -1,3 +1,16 @@
 eFMI
 Table
 Function
+NeuralParameters
+NeuralNetwork
+NeuralLayer
+NeuralBlock
+TensorFlowInput
+TensorFlowOutput
+CoordinateSystem
+Identity
+UnitStep
+ReLU
+Softplus
+Tanh
+Sigmoid

@@ -1,0 +1,6 @@
+Identity
+MinMaxNormalize
+MinMaxDenormalize
+StandardScoreNormalize
+StandardScoreDenormalize
+PCA

@@ -12,7 +12,7 @@ package eFMI_TestCases "eFMI_TestCases: Official MAP eFMI library with test-scen
       __Dymola_showFlat = true,
       access = Access.packageDuplicate),
     uses(
-      Modelica(version="4.0.0"),
+      Modelica(version="4.1.0"),
       eFMI(version="1.0.2")),
     Documentation(info="<html>
 <p>Library <b>eFMI_TestCases</b> provides application scenarios for evaluating and crosschecking <a href=\"https://efmi-standard.org/\">eFMI</a> tooling. It is officially released and maintained by the <a href=\"https://efmi-standard.org/\">MAP eFMI</a> in accordance with new releases of the eFMI standard.</p>
@@ -24,7 +24,7 @@ package eFMI_TestCases "eFMI_TestCases: Official MAP eFMI library with test-scen
 <li><b>Deputy library officer:</b> Andreas Pfeiffer (DLR-SR, <a href=\"mailto:Andreas.Pfeiffer@dlr.de\">Andreas.Pfeiffer@dlr.de</a>)</li>
 </ul>
 <p><b>Licensed under the <a href=\"https://opensource.org/licenses/BSD-3-Clause\">3-Clause BSD License</a></b></p>
-<p>Copyright &copy; 2017-2024, <a href=\"https://www.3ds.com/\">Dassault Syst&egrave;mes</a>, <a href=\"https://www.dlr.de/sr/en\">DLR-SR</a>, <a href=\"https://www.bosch.de/\">Robert Bosch GmbH</a>, <a href=\"https://modelica.org/\">Modelica Association and contributors</a>. </p>
+<p>Copyright &copy; 2017-2025, <a href=\"https://www.3ds.com/\">Dassault Syst&egrave;mes</a>, <a href=\"https://www.dlr.de/sr/en\">DLR-SR</a>, <a href=\"https://www.bosch.de/\">Robert Bosch GmbH</a>, <a href=\"https://modelica.org/\">Modelica Association and contributors</a>. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://opensource.org/licenses/BSD-3-Clause\">https://opensource.org/licenses/BSD-3-Clause</a>.</i> </p>
 <p><b>Modelica&reg;</b> is a registered trademark of the Modelica Association.</p>
 <p><b>eFMI&reg;</b> is a registered trademark of the Modelica Association.</p>

@@ -1,0 +1,35 @@
+within eFMI.Icons;
+partial class TensorFlowInput
+  annotation (
+    preferredView = "icon",
+    Icon(
+      graphics={
+        Polygon(
+          points={{0,100},{100,0},{0,-100},{-100,0},{0,100}},
+          fillPattern=FillPattern.Solid,
+          fillColor={129,129,129},
+          lineColor={129,129,129},
+          lineThickness=1),
+        Polygon(
+          points={{-10,40},{-40,40},{-40,-40},{-10,-40},{-10,-30},{-30,-30},
+            {-30,30},{-10,30},{-10,40}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          fillColor={190,190,190}),
+        Polygon(
+          points={{10,40},{40,40},{40,-40},{10,-40},{10,-30},{30,-30},{30,30},
+            {10,30},{10,40}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          fillColor={190,190,190}),
+        Rectangle(
+          extent={{-6,20},{6,8}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          fillColor={190,190,190}),
+        Rectangle(
+          extent={{-6,-8},{6,-20}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          fillColor={190,190,190})}));
+end TensorFlowInput;

@@ -1,10 +1,11 @@
 within eFMI.Icons;
-class Function
+partial class Function
   annotation (
+    preferredView = "icon",
     Icon(
       graphics={
         Text(
-          lineColor={0,0,255},
+          textColor={0,0,255},
           extent={{-150,105},{150,145}},
           textString="%name"),
         Ellipse(
@@ -13,7 +14,7 @@ class Function
           fillPattern = FillPattern.Solid,
           extent = {{-100,-100},{100,100}}),
         Text(
-          lineColor={108,88,49},
+          textColor={108,88,49},
           extent={{-90.0,-90.0},{90.0,90.0}},
           textString="f")}));
 end Function;
