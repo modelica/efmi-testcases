@@ -1,6 +1,5 @@
 within eFMI_TestCases.M11_NeuralQVM.Components.NeuralSpring;
 record Parametrization
-  extends .DymolaEmbedded.SupportModels.eBlockParameterization;
   extends .eFMI.Icons.NeuralParameters;
 
   parameter Real layer_1_weights[16,1]={
@@ -128,5 +127,7 @@ record Parametrization
   parameter Real layer_4_bias[1]={
         0.11143775};
 
-  annotation (preferredView = "text");
+  annotation (
+    preferredView = "text",
+    __Dymola_eFMI_ExposeTunableParameters = true);
 end Parametrization;
