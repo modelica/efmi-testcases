@@ -68,21 +68,9 @@ Johannes Ultsch, Julian Ruggaber, Andreas Pfeiffer, Christina Schreppel, Jakub T
 Actuators 10.11.<br>
 <a href=\"https://doi.org/10.3390/act10110301\">doi</a>, <a href=\"modelica://eFMI_TestCases/Resources/Documentation/M11-reference-4.pdf\">paper (pdf)</a>
 </blockquote>
-In opposite to this example, above reference uses a Kalman filter
-approach to incorporate the unknown non-linearities of the suspension.
-
-<p>
-
-A general overview for the application of reinforcement learning to train
-the vertical dynamics of QVMs is given in:
-<blockquote>
-Johannes Ultsch, Andreas Pfeiffer, Julian Ruggaber, Tobias Kamp, Jonathan Brembeck, Jakub Tobolár.<br>
-<i>Reinforcement Learning for Semi-Active Vertical Dynamics Control with Real-World Tests</i>.<br>
-Applied Sciences 14.16.<br>
-<a href=\"https://doi.org/10.3390/app14167066\">doi</a>, <a href=\"modelica://eFMI_TestCases/Resources/Documentation/M11-reference-5.pdf\">paper (pdf)</a>
-</blockquote>
-In opposite to this example, above reference does not yet use proper
-PeN-ODEs where actual physics-equations constrain and guide the training.
+In above work, an embedded QVM prediction model has been used to enable a Kalman
+filter, an application scenario the neural QVM presented in this example is
+well-suited for.
 
 <p>
 
