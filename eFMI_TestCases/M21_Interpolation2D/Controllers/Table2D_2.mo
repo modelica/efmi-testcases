@@ -17,7 +17,7 @@ block Table2D_2
                                      1,2,7;
                                     -6,-3,2];
 
-  Utilities.CombiTable2D   table2(
+  Utilities.CombiTable2D table2(
     efmi = true,
     efmi_u1_data=table_u1Data,
     efmi_u2_data=table_u2Data,
@@ -30,7 +30,7 @@ block Table2D_2
     uMax = 6)
     annotation (Placement(transformation(extent={{38,-60},{58,-40}})));
 
-  Utilities.CombiTable2D   table1(
+  Utilities.CombiTable2D table1(
     efmi = true,
     efmi_u1_data=table_u1Data,
     efmi_u2_data=table_u2Data,
