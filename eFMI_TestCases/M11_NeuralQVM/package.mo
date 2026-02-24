@@ -33,7 +33,7 @@ domain, are described in detail in:
 Tobias Kamp, Christoff Bürger, Johannes Rein, Jonathan Brembeck.<br>
 <i>Hybrid Simulation Models for Embedded Applications: A Modelica and eFMI approach</i>.<br>
 16th International Modelica Conference, September 8-10th 2025, Lucerne, Switzerland.<br>
-<a href=\"modelica://eFMI_TestCases/Resources/Documentation/M11-modelica-2025-paper.pdf\">doi</a>, <a href=\"modelica://eFMI_TestCases/Resources/Documentation/M11-modelica-2025-paper.pdf\">paper (pdf)</a>
+<a href=\"https://doi.org/10.3384/ecp218555\">doi</a>, <a href=\"modelica://eFMI_TestCases/Resources/Documentation/M11-modelica-2025-paper.pdf\">paper (pdf)</a>
 </blockquote>
 
 The example has been tested on a real vehicle; the setup is described in:
